@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketplace</title>
+</head>
+<body>
+<style>
+    @keyframes colorChange {
+  0% { background-color: gray; }
+  25% { background-color: cyan; }
+  50% { background-color: blue; } 
+  75% { background-color: cyan; }
+  100% { background-color: gray; }
+}
+
+  @keyframes rainbow2{
+  0% { background-color: red; }
+  14% { background-color: orange; }
+  28% { background-color: yellow; }
+  42% { background-color: green; }
+  57% { background-color: blue; }
+  71% { background-color: purple; }
+  85% { background-color: pink; }
+  100% { background-color: red; }
+  }
+
+#cubesCanvasShow, #colorsCanvasShow, #hatsCanvasShow, #accessoriesCanvasShow, #soonCanvasShow {
+        display: none;
+        border: 1px solid black;
+    }
+body {
+  animation: colorChange 30s linear infinite;
+}
+.rainbow2{
+  animation: rainbow2 5s linear infinite;
+}
+@font-face {
+    font-family: 'Roblox2017-v6dO';
+    src: url('Roblox2017-v6dO.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  body {
+    font-family: 'Roblox2017-v6dO', sans-serif;
+    background-color: grey;
+    color: white;
+    text-align: center;
+  }
+    button {
+    font-family: 'Roblox2017-v6dO', sans-serif;
+    background-color: grey;
+    color: white;
+    text-align: center;
+font-size: 7.5px;
+  }
+p.double {border-style: double;}
+.hide {
+  display: none;
+}
+    
+.cubes:hover + .hide {
+  display: block;
+  color: red;
+}
+.cubes {
+  position: relative;
+  display: inline-block;
+}
+
+.cubes .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.cubes .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.cubes:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+.hide {
+  display: none;
+}
+    
+.colors:hover + .hide {
+  display: block;
+  color: red;
+}
+.colors {
+  position: relative;
+  display: inline-block;
+}
+
+.colors .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.colors .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.colors:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+.hide {
+  display: none;
+}
+    
+.hats:hover + .hide {
+  display: block;
+  color: red;
+}
+.hats {
+  position: relative;
+  display: inline-block;
+}
+
+.hats .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.hats .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.hats:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+.hide {
+  display: none;
+}
+    
+.accessories:hover + .hide {
+  display: block;
+  color: red;
+}
+.accessories {
+  position: relative;
+  display: inline-block;
+}
+
+.accessories .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.accessories .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.accessories:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+.hide {
+  display: none;
+}
+    
+.soon:hover + .hide {
+  display: block;
+  color: red;
+}
+.soon {
+  position: relative;
+  display: inline-block;
+}
+
+.soon .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.soon .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.soon:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+.soon:hover + .hide {
+  display: block;
+  color: red;
+}
+.soon {
+  position: relative;
+  display: inline-block;
+}
+
+.reset .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.reset .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.reset:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+    button {
+  background-color: red;
+  transition: background-color 0.5s ease;
+}
+
+button:hover {
+  background-color: white;
+}
+</style>
+<div class="cubes" style="color: grey;font-size: 12.5px;position: absolute;bottom:290px;right:1277.5px;">text
+  <span class="tooltiptext">cubes</span>
+  </div>
+<div class="colors" style="color: grey;font-size: 12.5px;position: absolute;bottom:290px;right:1202.5px;">text
+  <span class="tooltiptext">colors</span>
+  </div>
+<div class="hats" style="color: grey;font-size: 12.5px;position: absolute;bottom:290px;right:1127.5px;">text
+  <span class="tooltiptext">hats</span>
+  </div>
+<div class="accessories" style="color: grey;font-size: 12.5px;position: absolute;bottom:290px;right:1032.5px;">text
+  <span class="tooltiptext">accessories</span>
+  </div>
+<div class="soon" style="color: grey;font-size: 12.5px;position: absolute;bottom:290px;right:787.5px;">text
+  <span class="tooltiptext">coming soon!</span>
+  </div>
+  <div class="reset" style="color: grey;font-size: 12.5px;position: absolute;bottom:290px;left:375px;">text
+  <span class="tooltiptext">resets the canvas back to original</span>
+  </div>
+<a href="ro-birth.html">
+<button class="button" style="position: absolute;top:0px;left:0px;color:white;border-radius: 7px;width:100px;height: 50px;font-size: 20px;">back</button>
+</a>
+<p>Preview</p>
+<p style="font-size: 25px;position: absolute;left: 800px; bottom:310px">info</p>
+<p style="font-size: 25px;position: absolute;left: 200px; bottom:310px">customization</p>
+<p style="font-size: 25px;position: absolute;left: 1150px; bottom:310px">tips</p>
+<p>make sure to save your changes before leaving this page. (not available yet)</p>
+<p style="font-size:10px;position: absolute;left: 1032.5px; bottom:250px">click the rainbow color change (cyan box)</p>
+<p style="font-size:10px;position: absolute;left: 1032.5px; bottom:235px"> twice to be able to change color</p>
+<p style="font-size:10px;position: absolute;left: 1032.5px; bottom:210px"> don't click the icon but the button</p>
+<p style="font-size:10px;position: absolute;left: 1032.5px; bottom:195px"> to be able to select an hat/accesory</p>
+<!-- canvas for the marketplace (the base) -->
+<canvas id="marketplaceCanvas" width="650" height="300" style="border: 5px solid black;position: absolute;bottom:10px;left: 10px;"></canvas>
+<canvas id="infoCanvas" width="650" height="300" style="border: 5px solid black;position: absolute;bottom:10px;left: 690px;"></canvas>
+<canvas id="tipsCanvas" width="325" height="300" style="border: 5px solid black;position: absolute;bottom:10px;left: 690px;"></canvas>
+<canvas id="PreviewCanvas" width="150" height="150" style="border: 5px solid black;position: absolute;bottom:400px;left:600px;"></canvas>
+<canvas id="square" style="border: 1px solid black;background-color: cyan;height: 50px;width: 50px;position: absolute;bottom:460px;left:650px;"></canvas>
+<!-- Dedicated canvases for each button -->
+<canvas id="cubesCanvasShow" width="650" height="225" style="border: 5px solid black;background-color: red;position: absolute;bottom:10px;left: 10px;display: block;"></canvas>
+<canvas id="colorsCanvasShow" width="650" height="225" style="border: 5px solid black;position: absolute;bottom:10px;left: 10px;display: none;"></canvas>
+<canvas id="hatsCanvasShow" width="650" height="225" style="border: 5px solid black;background-color:  blue;position: absolute;bottom:10px;left: 10px;display: none;"></canvas>
+<canvas id="accessoriesCanvasShow" width="650" height="225" style="border: 5px solid black;background-color:  purple;position: absolute;bottom:10px;left: 10px;display: none;"></canvas>
+<canvas id="soonCanvasShow" width="650" height="225" style="border: 5px solid black;background-color:  white;position: absolute;bottom:10px;left: 10px;display: none;"></canvas>
+<!-- button for new canvas-->
+<button class="button" id="newcube" style="background-color: red;width: 50px;height: 50px;position: absolute;left: 35px; bottom: 175px; "></button>
+<!-- buttons for colors-->
+<button class="button" id="red" style="background-color: red;width: 50px;height: 50px;position: absolute;left: 35px; bottom: 175px; "></button>
+    <button class="button" id="orange" style="background-color: orange;width: 50px;height: 50px;position: absolute;left: 110px; bottom: 175px; "></button>
+      <button class="button" id="yellow" style="background-color: yellow;width: 50px;height: 50px;position: absolute;left: 185px; bottom: 175px; "></button>
+<button class="button" id="green" style="background-color: green;width: 50px;height: 50px;position: absolute;left: 260px; bottom: 175px; "></button>
+  <button class="button" id="blue" style="background-color: blue;width: 50px;height: 50px;position: absolute;left: 335px; bottom: 175px; "></button>
+    <button class="button" id="purple" style="background-color: purple;width: 50px;height: 50px;position: absolute;left: 410px; bottom: 175px; "></button>
+      <button class="button" id="pink" style="background-color: pink;width: 50px;height: 50px;position: absolute;left: 485px; bottom: 175px; "></button>
+     <button class="button" id="white" style="background-color: white;width: 50px;height: 50px;position: absolute;left: 560px; bottom: 175px; "></button>
+     <button class="button" id="black" style="background-color: black;width: 50px;height: 50px;position: absolute;left: 35px; bottom: 100px; "></button>
+     <button class="button" id="rainbow1" style="background: linear-gradient(red 13%, orange 26%, yellow 39%, green 52%, blue 65%, indigo 78%, violet 91%, white 100%);width: 50px;height: 50px;position: absolute;left: 110px; bottom: 100px; "></button>
+<button class="button" id="rainbow2" style="background-color: cyan;width: 50px;height: 50px;position: absolute;left: 185px; bottom: 100px; "></button>
+<input type="color" id="colorPicker" value="#ff0000" style="position: absolute;left: 260px; bottom: 100px; width: 50px;height:50px;">
+<!-- buttons for hats-->
+     <button class="button" id="hat1" style="background-color: blue;width: 50px;height: 50px;position: absolute;left: 35px; bottom: 175px; "></button>
+    <button class="button" id="hat2" style="background-color: blue;width: 50px;height: 50px;position: absolute;left: 110px; bottom: 175px; "></button>
+      <button class="button" id="hat3" style="background-color: blue;width: 50px;height: 50px;position: absolute;left: 185px; bottom: 175px; "></button>
+<button class="button" id="hat4" style="background-color: blue;width: 50px;height: 50px;position: absolute;left: 260px; bottom: 175px; "></button>
+  <button class="button" id="hat5" style="background-color: blue;width: 50px;height: 50px;position: absolute;left: 335px; bottom: 175px; "></button>
+    <button class="button" id="hat6" style="background-color: blue;width: 50px;height: 50px;position: absolute;left: 410px; bottom: 175px; "></button>
+      <button class="button" id="hat7" style="background-color: blue;width: 50px;height: 50px;position: absolute;left: 485px; bottom: 175px; "></button>
+     <button class="button" id="hat8" style="background-color: blue;width: 50px;height: 50px;position: absolute;left: 560px; bottom: 175px; "></button>
+     <button class="button" id="hat9" style="background-color: blue;width: 50px;height: 50px;position: absolute;left: 35px; bottom: 100px; "></button>
+<!-- buttons for accessories -->
+     <button class="button" id="accessories1" style="background-color: purple;width: 50px;height: 50px;position: absolute;left: 35px; bottom: 175px; "></button>
+    <button class="button" id="accessories2" style="background-color: purple;width: 50px;height: 50px;position: absolute;left: 110px; bottom: 175px; "></button>
+      <button class="button" id="accessories3" style="background-color: purple;width: 50px;height: 50px;position: absolute;left: 185px; bottom: 175px; "></button>
+<button class="button" id="accessories4" style="background-color: purple;width: 50px;height: 50px;position: absolute;left: 260px; bottom: 175px; "></button>
+  <button class="button" id="accessories5" style="background-color: purple;width: 50px;height: 50px;position: absolute;left: 335px; bottom: 175px; "></button>
+    <button class="button" id="accessories6" style="background-color: purple;width: 50px;height: 50px;position: absolute;left: 410px; bottom: 175px; "></button>
+      <button class="button" id="accessories7" style="background-color: purple;width: 50px;height: 50px;position: absolute;left: 485px; bottom: 175px; "></button>
+     <button class="button" id="accessories8" style="background-color: purple;width: 50px;height: 50px;position: absolute;left: 560px; bottom: 175px; "></button>
+     <button class="button" id="accessories9" style="background-color: purple;width: 50px;height: 50px;position: absolute;left: 35px; bottom: 100px; "></button>
+     <!-- Buttons (each shows its assigned canvas) -->
+<button class="button" id="cubesbutton" style="position: absolute;bottom:260px;left:35px;width:50px;height:50px;background-color:grey;">cubes</button>
+<button class="button" id="colorsbutton" style="position: absolute;bottom:260px;left:110px;width:50px;height:50px;background-color:grey;">colors</button>
+<button class="button" id="hatsbutton" style="position: absolute;bottom:260px;left:185px;width:50px;height:50px;background-color:grey;">hats</button>
+<button class="button" id="accessoriesbutton" style="position: absolute;bottom:260px;left:255px;width:100px;height:50px;background-color:grey;">accessories</button>
+<button class="button" id="soonbutton" style="position: absolute;bottom:260px;left:435px;width:225px;height:50px;background-color:grey;">coming soon!</button>
+<button class="button" id="resetbutton" style="position: absolute;bottom:260px;left:370px;width:50px;height:50px;background-color:grey;">reset</button>
+<canvas id="resetted"></canvas>
+<!--canvas for the hats-->
+<!-- canvas for tophat-->
+<canvas id="tophatA" style=" background-color:black;width: 75px; height: 12.5px;position: absolute;bottom: 512.5px;left: 637.5px;"></canvas>
+<canvas id="tophatB" style=" background-color:black;width: 50px; height: 50px;position: absolute;bottom: 515px;left: 650px;"></canvas>
+<canvas id="tophatC" style=" background-color:white;width: 50px; height: 12.5px;position: absolute;bottom: 525px;left: 650px;"></canvas>
+<!-- canvas for cap-->
+<canvas id="capA" style=" background-color:black;width: 75px; height: 12.5px;position: absolute;bottom: 512.5px;left: 645px;"></canvas>
+<canvas id="capB" style=" background-color:black;width: 60px; height: 25px;position: absolute;bottom: 512.5px;left: 645px;"></canvas>
+<!-- canvas for beanie-->
+<canvas id="beanieA" style=" background-color:black;width: 75px; height: 12.5px;position: absolute;bottom: 512.5px;left: 640px;"></canvas>
+<canvas id="beanieB" style=" background-color:black;width: 60px; height: 25px;position: absolute;bottom: 512.5px;left: 647.5px;"></canvas>
+<canvas id="beanieC" style=" background-color:black;width: 45px; height: 37.5px;position: absolute;bottom: 512.5px;left: 655px;"></canvas>
+<!--canvas for santahat-->
+<canvas id="santahatA" style=" background-color:red;width: 65px; height: 12.5px;position: absolute;bottom: 512.5px;left: 645px;"></canvas>
+<canvas id="santahatB" style=" background-color:red;width: 50px; height: 25px;position: absolute;bottom: 512.5px;left: 652.5px;"></canvas>
+<canvas id="santahatC" style=" background-color:red;width: 35px; height: 37.5px;position: absolute;bottom: 512.5px;left: 660px;"></canvas>
+<canvas id="santahatD" style=" background-color:red;width: 25px; height: 50px;position: absolute;bottom: 512.5px;left: 670px;"></canvas>
+<canvas id="santahatE" style=" background-color:red;width: 15px; height: 15px;position: absolute;bottom: 547.5px;left: 690px;"></canvas>
+<canvas id="santahatF" style=" background-color:white;width: 15px; height: 15px;position: absolute;bottom: 545px;left: 700px;"></canvas>
+<!-- canvas for propeller hat-->
+<canvas id="propellerA" style=" background-color:orange;width: 75px; height: 12.5px;position: absolute;bottom: 512.5px;left: 645px;"></canvas>
+<canvas id="propellerB" style=" background-color:orangered;width: 60px; height: 25px;position: absolute;bottom: 512.5px;left: 645px;"></canvas>
+<canvas id="propellerC" style=" border-width: 2px; border-color: black;background-color:white;width: 5px ; height: 25px;position: absolute;bottom: 512.5px;left: 675px;"></canvas>
+<canvas id="propellerD" style=" border-width: 2px; border-color: black; background-color:white;width: 25px ; height: 5px;position: absolute;bottom: 522.5px;left: 665px;"></canvas>
+<!--canvas for izan hat-->
+<canvas id="izanA" style="background-color: rgb(255, 194, 114); width: 60px; height: 25px;position: absolute;bottom: 512.5px;left: 645px;"></canvas>
+<canvas id="izanB" style="background-color: rgb(255, 194, 114); width: 50px; height: 25px;position: absolute;bottom: 520px;left: 650px;"></canvas>
+<canvas id="izanC" style="background-color: rgb(247, 0, 185); width: 60px; height: 5px;position: absolute;bottom: 515px;left: 645px;"></canvas>
+<canvas id="izanD" style="background-color: rgb(247, 0, 185); width: 5px; height: 15px;position: absolute;bottom: 512.5px;left: 695px;"></canvas>
+<!-- canvas for medieval helmet-->
+<canvas id="helmetA" style=" background-color:red;width: 15px; height: 40px;position: absolute;bottom: 512.5px;left: 667.5px;" ></canvas>
+<canvas id="helmetB" style=" background-color:black;width: 60px; height: 12.5px;position: absolute;bottom: 512.5px;left: 645px;" ></canvas>
+<canvas id="helmetC" style=" background-color:black;width: 25px; height: 30px;position: absolute;bottom: 475px;left: 645px;" ></canvas>
+<canvas id="helmetD" style=" background-color:black;width: 25px; height: 30px;position: absolute;bottom: 475px;left: 680px;" ></canvas>
+<canvas id="helmetE" style=" background-color:black;width: 15px; height: 50px;position: absolute;bottom: 475px;left: 645px;" ></canvas>
+<canvas id="helmetF" style=" background-color:black;width: 15px; height: 50px;position: absolute;bottom: 475px;left: 690px;" ></canvas>
+<!--canvas for strawhat (i like luffy lololololol)-->
+<canvas id="strawhatA" style=" background-color:rgb(255, 194, 114);width: 75px; height: 12.5px;position: absolute;bottom: 512.5px;left: 640px;"></canvas>
+<canvas id="strawhatB" style=" background-color:rgb(255, 194, 114);width: 60px; height: 25px;position: absolute;bottom: 512.5px;left: 647.5px;"></canvas>
+<canvas id="strawhatC" style=" background-color:rgb(255, 194, 114);width: 45px; height: 37.5px;position: absolute;bottom: 512.5px;left: 655px;"></canvas>
+<canvas id="strawhatD" style=" background-color:red;width: 75px; height: 12.5px;position: absolute;bottom: 513px;left: 640px;"></canvas>
+<!--canvas for chopper hat-->
+<canvas id="choppyA" style=" background-color:rgb(255, 34, 82);width: 50px; height: 50px;position: absolute;bottom: 512.5px;left: 651px;"></canvas>
+<canvas id="choppyB" style=" background-color:rgb(255, 34, 82);width: 75px; height: 12.5px;position: absolute;bottom: 512.5px;left: 637.5px;"></canvas>
+<canvas id="choppyC" style="transform: rotate(45deg);background-color:white;width: 5px ; height: 25px;position: absolute;bottom: 515px;left: 675px;"></canvas>
+<canvas id="choppyD" style="transform: rotate(135deg);background-color:white;width: 5px ; height: 25px;position: absolute;bottom: 515px;left: 675px;"></canvas>
+<!--canvas for the accesories-->
+<!-- canvas for cool-->
+<canvas id="coolA" style=" background-color:black;width: 75px; height: 12.5px;position: absolute;bottom: 512.5px;left: 645px;"></canvas>
+<canvas id="coolB" style=" background-color:black;width: 60px; height: 25px;position: absolute;bottom: 512.5px;left: 645px;"></canvas>
+<canvas id="coolC" style=" background-color:black;width: 45px; height: 37.5px;position: absolute;bottom: 512.5px;left: 645px;"></canvas>
+<!--canvas for necklace -->
+<canvas id="necklaceA" style=" background-color:pink; width:15px ; height:15px; position: absolute; bottom: 475px; left: 667.5px;"></canvas>
+<canvas id="necklaceB" style=" background-color:pink; width:15px ; height:15px; position: absolute; bottom: 478px; left: 655px;"></canvas>
+<canvas id="necklaceC" style=" background-color:pink; width:15px ; height:15px; position: absolute; bottom: 478px; left: 680px;"></canvas>
+<canvas id="necklaceD" style=" background-color:pink; width:15px ; height:15px; position: absolute; bottom: 485px; left: 645px;"></canvas>
+<canvas id="necklaceE" style=" background-color:pink; width:15px ; height:15px; position: absolute; bottom: 485px; left: 690px;"></canvas>
+<!--canvas for sunglasses-->
+<canvas id="sunglassesA" style=" background-color:black;width: 17.5px; height: 17.5px;position: absolute;bottom: 477.5px;left: 657.5px;"></canvas>
+<canvas id="sunglassesB" style=" background-color:black;width: 17.5px; height: 17.5px;position: absolute;bottom: 477.5px;left: 680px;"></canvas>
+<canvas id="sunglassesC" style=" background-color:black;width: 70px; height: 10px;position: absolute;bottom: 485px;left: 640px;"></canvas>
+<!--canvas for googly eyes-->
+<canvas id="googlyEyesA" style=" background-color:white;width: 20px; height: 20px;position: absolute;bottom: 480px;left: 652.5px;"></canvas>
+<canvas id="googlyEyesB" style=" background-color:white;width: 20px; height: 20px;position: absolute;bottom: 480px;left: 680px;"></canvas>
+<canvas id="googlyEyesC" style=" background-color:black;width: 15px; height: 15px;position: absolute;bottom: 480px;left: 655px;"></canvas>
+<canvas id="googlyEyesD" style=" background-color:black;width: 15px; height: 15px;position: absolute;bottom: 480px;left: 682.5px;"></canvas>
+<!--canvas for shoes-->
+<canvas id="shoesA" style=" background-color:black;width: 32.5px; height: 10px;position: absolute;bottom: 450px;left: 640px;"></canvas>
+<canvas id="shoesB" style=" background-color:black;width: 32.5px; height: 10px;position: absolute;bottom: 450px;left: 682.5px;"></canvas>
+<canvas id="shoesC" style=" background-color:black;width: 30px; height: 10px;position: absolute;bottom: 450px;left: 640px;"></canvas>
+<canvas id="shoesD" style="transform:rotate(15deg) ; background-color:black;width: 30px; height: 10px;position: absolute;bottom: 455px;left: 682.5px;"></canvas>
+<canvas id="shoesE" style="transform:rotate(165deg) ; background-color:black;width: 30px; height: 10px;position: absolute;bottom: 455px;left: 642.5px;"></canvas>
+<canvas id="shoesF" style=" background-color:white;width: 5px; height: 5px;position: absolute;bottom: 460px;left: 642.5px;"></canvas>
+<canvas id="shoesG" style=" background-color:white;width: 5px; height: 5px;position: absolute;bottom: 462.5px;left: 650px;"></canvas>
+<canvas id="shoesH" style=" background-color:white;width: 5px; height: 5px;position: absolute;bottom: 465px;left: 657.5px;"></canvas>
+<canvas id="shoesI" style=" background-color:white;width: 5px; height: 5px;position: absolute;bottom: 460px;left: 707.5px;"></canvas>
+<canvas id="shoesJ" style=" background-color:white;width: 5px; height: 5px;position: absolute;bottom: 462.5px;left: 700px;"></canvas>
+<canvas id="shoesK" style=" background-color:white;width: 5px; height: 5px;position: absolute;bottom: 465px;left: 692.5px;"></canvas>
+<!--canvas for rods-->
+<canvas id="rodsA" style="transform:rotate(155deg);background: linear-gradient(lightblue, purple, darkblue);width: 10px; height: 50px;position: absolute;bottom: 470px;left: 620px;"></canvas>
+<canvas id="rodsB" style="transform:rotate(25deg);background: linear-gradient(to top, lightblue, purple, darkblue);width: 10px; height: 50px;position: absolute;bottom: 470px;left: 725px;"></canvas>
+<!--canvas for dual katanas-->
+<canvas id="katanaA" style="transform:rotate(325deg);background: linear-gradient(silver 50%, black 100%);width: 5px; height: 60px;position: absolute;bottom: 470px;left: 630px;"></canvas>
+<canvas id="katanaB" style="transform:rotate(35deg);background: linear-gradient(silver 50%, black 100%);width: 5px; height: 60px;position: absolute;bottom: 470px;left: 716.75px;"></canvas>
+<!--canvas for gojo's big black balls-->
+<canvas id="gojoA" style=" background:linear-gradient(red 50%, magenta 100%);width: 25px; height: 25px;border-radius:50%;position: absolute;bottom: 470px;left: 620px;"></canvas>
+<canvas id="gojoB" style=" background:linear-gradient(blue 50%, cyan 100%);width: 25px; height: 25px;border-radius:50%;position: absolute;bottom: 470px;left: 710px;"></canvas>
+<!--canvas for veronica's knife (idk why she specially asked for this)-->
+<!--note: make the knife animate to change color like crazy and make it [spin around the character like a blade of chaos and fury!! -claude haiku 4,5] and flashbang ennemies with a cooldown of 20seconds and a duration of 30 seconds. -adrian (apple dev on discord)aka シャドウX or @dragon_shad-->
+<canvas id="veronicaKnifeA" style="transform:rotate(35deg);border-radius: 75%; background-color:silver;width: 15px; height: 50px;position: absolute;bottom: 487.5px;left: 728px;"></canvas>
+<canvas id="veronicaKnifeB" style="transform:rotate(35deg); background-color:silver;width: 10px; height: 50px;position: absolute;bottom: 470px;left: 715px;"></canvas>
+<canvas id="veronicaKnifeC" style="transform:rotate(35deg); background-color:black;width: 10px; height: 50px;position: absolute;bottom: 450px;left: 700px;"></canvas>
+<canvas id="veronicaKnifeD" style=" background-color:white;width: 5px; height: 5px;position: absolute;bottom: 467.5px;left: 700px;"></canvas>
+<canvas id="veronicaKnifeE" style=" background-color:white;width: 5px; height: 5px;position: absolute;bottom: 457.5px;left: 692.5px;"></canvas>
+<canvas id="veronicaKnifeF" style=" background-color:white;width: 5px; height: 5px;position: absolute;bottom: 477.5px;left: 707.5px;"></canvas>
+<!--canvas for the icons (hats)-->
+<!--canvas for tophatIcon-->
+<canvas id="tophatIconA" style=" background-color:black;width: 30px; height: 5px;position: absolute;bottom: 192.5px;left: 45px;"></canvas>
+<canvas id="tophatIconB" style=" background-color:black;width: 20px; height: 20px;position: absolute;bottom: 196.5px;left: 50px;"></canvas>
+<canvas id="tophatIconC" style=" background-color:white;width: 20px; height: 5px;position: absolute;bottom: 197.5px;left: 50px;"></canvas>
+<!--canvas for capIcon-->
+<canvas id="capIconA" style=" background-color:black;width: 30px; height: 5px;position: absolute;left: 120px; bottom: 195px;"></canvas>
+<canvas id="capIconB" style=" background-color:black;width: 24px; height: 10px;position: absolute;left: 120px; bottom: 195px;"></canvas>
+<!-- canvas for beanieIcon-->
+<canvas id="beanieIconA" style=" background-color:black;width: 30px; height: 5px;position: absolute;bottom: 195px;left: 195px;"></canvas>
+<canvas id="beanieIconB" style=" background-color:black;width: 24px; height: 10px;position: absolute;bottom: 195px;left: 197.5px;"></canvas>
+<canvas id="beanieIconC" style=" background-color:black;width: 18px; height: 15px;position: absolute;bottom: 195px;left: 201.25px;"></canvas>
+<!--canvas for santahatIcon-->
+<canvas id="santahatIconA" style=" background-color:red;width: 26px; height: 5px;position: absolute;bottom: 195px;left: 272.5px;"></canvas>
+<canvas id="santahatIconB" style=" background-color:red;width: 20px; height: 10px;position: absolute;bottom: 195px;left: 275px;"></canvas>
+<canvas id="santahatIconC" style=" background-color:red;width: 14px; height: 15px;position: absolute;bottom: 195px;left: 278.25px;"></canvas>
+<canvas id="santahatIconD" style=" background-color:red;width: 10px; height: 20px;position: absolute;bottom: 195px;left: 282.5px;"></canvas>
+<canvas id="santahatIconE" style=" background-color:red;width: 6px; height: 6px;position: absolute;bottom: 211px;left: 292.5px;"></canvas>
+<canvas id="santahatIconF" style=" background-color:white;width: 6px; height: 6px;position: absolute;bottom: 209px;left: 295px"></canvas>
+<!-- canvas for propeller hat Icon-->
+<canvas id="propellerIconA" style=" background-color:orange;width: 30px; height: 5px;position: absolute;left: 345px; bottom: 195px;"></canvas>
+<canvas id="propellerIconB" style=" background-color:orangered;width: 24px; height: 10px;position: absolute;left: 345px; bottom: 195px;"></canvas>
+<canvas id="propellerIconC" style=" border-width: 2px; border-color: black;background-color:white;width: 2px ; height: 10px;position: absolute;left: 355px; bottom: 195px;"></canvas>
+<canvas id="propellerIconD" style=" border-width: 2px; border-color: black; background-color:white;width: 10px ; height: 2px;position: absolute;left: 351.25px; bottom: 200px;"></canvas>
+<!--canvas for izan hat Icon-->
+<canvas id="izanIconA" style="background-color: rgb(255, 194, 114); width: 24px; height: 10px;position: absolute;bottom: 195px;left: 422.5px;"></canvas>
+<canvas id="izanIconB" style="background-color: rgb(255, 194, 114); width: 20px; height: 10px;position: absolute;bottom: 200px;left: 425px;"></canvas>
+<canvas id="izanIconC" style="background-color: rgb(247, 0, 185); width: 24px; height: 2px;position: absolute;bottom: 197.5px;left: 422.5px;"></canvas>
+<canvas id="izanIconD" style="background-color: rgb(247, 0, 185); width: 2px; height: 6px;position: absolute;bottom: 195.5px;left: 442.5px;"></canvas>
+<!--canvas for medieval helmet Icon-->
+<canvas id="helmetIconA" style=" background-color:red;width: 6px; height: 16px;position: absolute;bottom: 207.5px;left: 507px;" ></canvas>
+<canvas id="helmetIconB" style=" background-color:black;width: 24px; height: 5px;position: absolute;bottom: 205px;left: 497.5px;" ></canvas>
+<canvas id="helmetIconC" style=" background-color:black;width: 12.5px; height: 20px;position: absolute;bottom: 180px;left: 493px;" ></canvas>
+<canvas id="helmetIconD" style=" background-color:black;width: 12.5px; height: 20px;position: absolute;bottom: 180px;left: 513.75px;" ></canvas>
+<canvas id="helmetIconE" style=" background-color:black;width: 6px; height: 25px;position: absolute;bottom: 185px;left: 492.5px;" ></canvas>
+<canvas id="helmetIconF" style=" background-color:black;width: 6px; height: 25px;position: absolute;bottom: 185px;left: 520px;" ></canvas>
+<!--canvas for strawhatIcon-->
+<canvas id="strawhatIconA" style=" background-color:rgb(255, 194, 114);width: 30px; height: 5px;position: absolute;bottom: 192.5px;left: 571px;"></canvas>
+<canvas id="strawhatIconB" style=" background-color:rgb(255, 194, 114);width: 24px; height: 10px;position: absolute;bottom: 192.5px;left: 573.5px;"></canvas>
+<canvas id="strawhatIconC" style=" background-color:rgb(255, 194, 114);width: 18px; height: 15px;position: absolute;bottom: 192.5px;left: 577.25px;"></canvas>
+<canvas id="strawhatIconD" style=" background-color:red;width: 30px; height: 2px;position: absolute;bottom: 193px;left: 571px;"></canvas>
+<!--canvas for chopper hat Icon-->
+<canvas id="choppyIconA" style=" background-color:rgb(255, 34, 82);width: 20px; height: 20px;position: absolute;left: 50px; bottom: 115px;"></canvas>
+<canvas id="choppyIconB" style=" background-color:rgb(255, 34, 82);width: 30px; height: 5px;position: absolute;left: 45px; bottom: 115px;"></canvas>
+<canvas id="choppyIconC" style="transform: rotate(45deg);background-color:white;width: 2px ; height: 10px;position: absolute;left: 60px; bottom: 117.5px;"></canvas>
+<canvas id="choppyIconD" style="transform: rotate(135deg);background-color:white;width: 2px ; height: 10px;position: absolute;left: 60px; bottom: 117.5px;"></canvas>
+<!--canvas for the icons (accessory)-->
+<!-- canvas for coolIcon-->
+<canvas id="coolIconA" style=" background-color:black;width: 30px; height: 5px;position: absolute;bottom: 195px;left: 45px;"></canvas>
+<canvas id="coolIconB" style=" background-color:black;width: 24px; height: 10px;position: absolute;bottom: 195px;left: 45px;"></canvas>
+<canvas id="coolIconC" style=" background-color:black;width: 18px; height: 15px;position: absolute;bottom: 195px;left: 45px;"></canvas>
+<!--canvas for necklaceIcon -->
+<canvas id="necklaceIconA" style=" background-color:pink; width:6px ; height:6px; position: absolute; bottom: 197.5px; left: 121.75px;"></canvas>
+<canvas id="necklaceIconB" style=" background-color:pink; width:6px ; height:6px; position: absolute; bottom: 195px; left: 126.75px;"></canvas>
+<canvas id="necklaceIconC" style=" background-color:pink; width:6px ; height:6px; position: absolute; bottom: 193.25px; left: 131.75px;"></canvas>
+<canvas id="necklaceIconD" style=" background-color:pink; width:6px ; height:6px; position: absolute; bottom: 195px; left: 136.75px;"></canvas>
+<canvas id="necklaceIconE" style=" background-color:pink; width:6px ; height:6px; position: absolute; bottom: 197.5px; left: 141.75px;"></canvas>
+<!--canvas for sunglassesIcon-->
+<canvas id="sunglassesIconA" style=" background-color:black;width: 7px; height: 7px;position: absolute;bottom: 195px;left: 200px;"></canvas>
+<canvas id="sunglassesIconB" style=" background-color:black;width: 7px; height: 7px;position: absolute;bottom: 195px;left: 212.5px;"></canvas>
+<canvas id="sunglassesIconC" style=" background-color:black;width: 28px; height: 4px;position: absolute;bottom: 200px;left: 195px;"></canvas>
+<!--canvas for googly eyes Icon-->
+<canvas id="googlyEyesIconA" style=" background-color:white;width: 8px; height: 8px;position: absolute;bottom: 480px;left: 652.5px;"></canvas>
+<canvas id="googlyEyesIconB" style=" background-color:white;width: 8px; height: 8px;position: absolute;bottom: 480px;left: 680px;"></canvas>
+<canvas id="googlyEyesIconC" style=" background-color:black;width: 6px; height: 6px;position: absolute;bottom: 480px;left: 655px;"></canvas>
+<canvas id="googlyEyesIconD" style=" background-color:black;width: 6px; height: 6px;position: absolute;bottom: 480px;left: 682.5px;"></canvas>
+<script>
+        /* ===============================
+           CANVAS + BUTTON SWITCH SYSTEM
+        ================================ */
+
+        const canvasIds = [
+            'cubesCanvasShow',
+            'colorsCanvasShow',
+            'hatsCanvasShow',
+            'accessoriesCanvasShow',
+            'soonCanvasShow'
+        ];
+
+        const buttonGroups = {
+            cubesCanvasShow: [],
+            colorsCanvasShow: ['red','orange','yellow','green','blue','purple','pink','white','black','rainbow1','rainbow2','colorPicker'],
+            hatsCanvasShow: ['hat1','hat2','hat3','hat4','hat5','hat6','hat7','hat8', 'hat9',
+                             'tophatIconA', 'tophatIconB', 'tophatIconC',
+                             'capIconA', 'capIconB',
+                             'beanieIconA', 'beanieIconB', 'beanieIconC',
+                             'santahatIconA', 'santahatIconB', 'santahatIconC', 'santahatIconD', 'santahatIconE', 'santahatIconF',
+                              'propellerIconA', 'propellerIconB', 'propellerIconC', 'propellerIconD',
+                              'izanIconA', 'izanIconB', 'izanIconC', 'izanIconD',
+                              'helmetIconA', 'helmetIconB', 'helmetIconC', 'helmetIconD', 'helmetIconE', 'helmetIconF',
+                              'strawhatIconA', 'strawhatIconB', 'strawhatIconC', 'strawhatIconD',
+                              'choppyIconA', 'choppyIconB', 'choppyIconC', 'choppyIconD',
+                            ],
+            accessoriesCanvasShow: ['accessories1','accessories2','accessories3','accessories4','accessories5','accessories6','accessories7','accessories8','accessories9',
+                                    'coolIconA', 'coolIconB', 'coolIconC',
+                                    'necklaceIconA', 'necklaceIconB', 'necklaceIconC', 'necklaceIconD', 'necklaceIconE',
+                                    'sunglassesIconA', 'sunglassesIconB', 'sunglassesIconC',
+                                    'googlyEyesIconA', 'googlyEyesIconB', 'googlyEyesIconC', 'googlyEyesIconD',
+                                    'shoesIconA', 'shoesIconB', 'shoesIconC', 'shoesIconD', 'shoesIconE', 'shoesIconF', 'shoesIconG', 'shoesIconH', 'shoesIconI', 'shoesIconJ', 'shoesIconK',
+                                    'rodsIconA', 'rodsIconB',
+                                    'katanaIconA', 'katanaIconB',
+                                    'gojoIconA', 'gojoIconB',
+                                    'veronicaKnifeIconA', 'veronicaKnifeIconB', 'veronicaKnifeIconC', 'veronicaKnifeIconD', 'veronicaKnifeIconE', 'veronicaKnifeIconF'],
+                                    
+            soonCanvasShow: ['newcube'],
+        };
+
+        const allButtons = Object.values(buttonGroups).flat();
+
+        function hideAllCanvases() {
+            canvasIds.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.style.display = 'none';
+            });
+        }
+
+        function hideAllButtons() {
+            allButtons.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.style.display = 'none';
+            });
+        }
+
+        /* ===============================
+           WEARABLE SYSTEM (MULTIPLE WEARABLES)
+        ================================ */
+
+        const wearables1 = {
+            hat1: ['tophatA','tophatB','tophatC'],
+            hat2: ['capA','capB'],
+            hat3: ['beanieA','beanieB','beanieC'],
+            hat4: ['santahatA','santahatB','santahatC','santahatD','santahatE','santahatF'],
+            hat5: ['propellerA','propellerB','propellerC','propellerD'],
+            hat6: ['izanA','izanB','izanC','izanD'],
+            hat7: ['helmetA','helmetB','helmetC','helmetD','helmetE','helmetF'],
+            hat8: ['strawhatA','strawhatB','strawhatC','strawhatD'],
+            hat9: ['choppyA','choppyB','choppyC','choppyD'],
+        };
+
+        const wearables2 = {
+            accessories1: ['coolA','coolB','coolC'],
+            accessories2: ['necklaceA','necklaceB','necklaceC','necklaceD','necklaceE'],
+            accessories3: ['sunglassesA','sunglassesB','sunglassesC'],
+            accessories4: ['googlyEyesA','googlyEyesB','googlyEyesC','googlyEyesD'],
+            accessories5: ['shoesA','shoesB','shoesC','shoesD','shoesE','shoesF','shoesG','shoesH','shoesI','shoesJ','shoesK'],
+            accessories6: ['rodsA','rodsB'],
+            accessories7: ['katanaA','katanaB'],
+            accessories8: ['gojoA','gojoB'],
+            accessories9: ['veronicaKnifeA','veronicaKnifeB','veronicaKnifeC','veronicaKnifeD','veronicaKnifeE','veronicaKnifeF'],
+          };
+
+        let currentWearable1 = null; // Hat
+        let currentWearable2 = null; // Accessories
+
+        function hideAllWearables() {
+            Object.values(wearables1).flat().forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.style.display = 'none';
+            });
+            Object.values(wearables2).flat().forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.style.display = 'none';
+            });
+        }
+
+        function equipWearable1(key) {
+            // Hide previous hat
+            if (currentWearable1 && wearables1[currentWearable1]) {
+                wearables1[currentWearable1].forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) el.style.display = 'none';
+                });
+            }
+            // Equip new hat
+            currentWearable1 = key;
+            wearables1[key]?.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.style.display = 'block';
+            });
+        }
+
+        function equipWearable2(key) {
+            // Hide previous accessory
+            if (currentWearable2 && wearables2[currentWearable2]) {
+                wearables2[currentWearable2].forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) el.style.display = 'none';
+                });
+            }
+            // Equip new accessory
+            currentWearable2 = key;
+            wearables2[key]?.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.style.display = 'block';
+            });
+        }
+
+        function restoreCurrentWearables() {
+            if (currentWearable1 && wearables1[currentWearable1]) {
+                wearables1[currentWearable1].forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) el.style.display = 'block';
+                });
+            }
+            if (currentWearable2 && wearables2[currentWearable2]) {
+                wearables2[currentWearable2].forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) el.style.display = 'block';
+                });
+            }
+        }
+
+        /* ===============================
+           SHOW ONLY ONE CANVAS
+        ================================ */
+
+        function showOnly(canvasId) {
+            hideAllCanvases();
+            hideAllButtons();
+
+            const canvas = document.getElementById(canvasId);
+            if (canvas) canvas.style.display = 'block';
+
+            const group = buttonGroups[canvasId] || [];
+            group.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.style.display = 'block';
+            });
+
+            restoreCurrentWearables();
+        }
+
+        /* ===============================
+           INITIAL STATE
+        ================================ */
+
+        hideAllButtons();
+        hideAllWearables();
+        showOnly('cubesCanvasShow');
+
+        /* ===============================
+           TAB BUTTONS
+        ================================ */
+
+        document.getElementById('cubesbutton')?.addEventListener('click', () => showOnly('cubesCanvasShow'));
+        document.getElementById('colorsbutton')?.addEventListener('click', () => showOnly('colorsCanvasShow'));
+        document.getElementById('hatsbutton')?.addEventListener('click', () => showOnly('hatsCanvasShow'));
+        document.getElementById('accessoriesbutton')?.addEventListener('click', () => showOnly('accessoriesCanvasShow'));
+        document.getElementById('soonbutton')?.addEventListener('click', () => showOnly('soonCanvasShow'));
+
+        /* ===============================
+           WEARABLE BUTTONS
+        ================================ */
+
+        document.getElementById('hat1')?.addEventListener('click', () => equipWearable1('hat1'));
+        document.getElementById('hat2')?.addEventListener('click', () => equipWearable1('hat2'));
+        document.getElementById('hat3')?.addEventListener('click', () => equipWearable1('hat3'));
+        document.getElementById('hat4')?.addEventListener('click', () => equipWearable1('hat4'));
+        document.getElementById('hat5')?.addEventListener('click', () => equipWearable1('hat5'));
+        document.getElementById('hat6')?.addEventListener('click', () => equipWearable1('hat6'));
+        document.getElementById('hat7')?.addEventListener('click', () => equipWearable1('hat7'));
+        document.getElementById('hat8')?.addEventListener('click', () => equipWearable1('hat8'));
+        document.getElementById('hat9')?.addEventListener('click', () => equipWearable1('hat9'));
+        document.getElementById('accessories1')?.addEventListener('click', () => equipWearable2('accessories1'));
+        document.getElementById('accessories2')?.addEventListener('click', () => equipWearable2('accessories2'));
+        document.getElementById('accessories3')?.addEventListener('click', () => equipWearable2('accessories3'));
+        document.getElementById('accessories4')?.addEventListener('click', () => equipWearable2('accessories4'));
+        document.getElementById('accessories5')?.addEventListener('click', () => equipWearable2('accessories5'));
+        document.getElementById('accessories6')?.addEventListener('click', () => equipWearable2('accessories6'));
+        document.getElementById('accessories7')?.addEventListener('click', () => equipWearable2('accessories7'));
+        document.getElementById('accessories8')?.addEventListener('click', () => equipWearable2('accessories8'));
+        document.getElementById('accessories9')?.addEventListener('click', () => equipWearable2('accessories9'));
+        document.getElementById('resetbutton')?.addEventListener('click', () => {
+            currentWearable1 = null;
+            currentWearable2 = null;
+            hideAllWearables();
+        });
+        /* ===============================
+            COLOR BUTTONS
+          ================================ */
+
+    const canvas = document.getElementById('square');
+    const ctx = canvas.getContext('2d');
+
+    // Initial fill
+    ctx.fillStyle = "cyan"; // Light blue
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Save the initial canvas state so we can restore it later
+    let initialSquareImageData = null;
+    try {
+      initialSquareImageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    } catch (e) {
+      // getImageData can fail on tainted canvases; fall back to null
+      initialSquareImageData = null;
+    }
+
+    // Helper to fill with a color
+    function fillSquareWith(color) {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = color;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
+
+    // Button click event
+    document.getElementById('red').addEventListener('click', () => fillSquareWith('red'));
+    document.getElementById('orange').addEventListener('click', () => fillSquareWith('orange'));
+    document.getElementById('yellow').addEventListener('click', () => fillSquareWith('yellow'));
+    document.getElementById('green').addEventListener('click', () => fillSquareWith('green'));
+    document.getElementById('blue').addEventListener('click', () => fillSquareWith('blue'));
+    document.getElementById('purple').addEventListener('click', () => fillSquareWith('purple'));
+    document.getElementById('pink').addEventListener('click', () => fillSquareWith('pink'));
+    document.getElementById('white').addEventListener('click', () => fillSquareWith('white'));
+    document.getElementById('black').addEventListener('click', () => fillSquareWith('black'));
+    // Rainbow button
+    document.getElementById('rainbow1').addEventListener('click', () => {
+      const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+      gradient.addColorStop(0, 'red');
+      gradient.addColorStop(0.17, 'orange');
+      gradient.addColorStop(0.34, 'yellow');
+      gradient.addColorStop(0.51, 'green');
+      gradient.addColorStop(0.68, 'blue');
+      gradient.addColorStop(0.85, 'indigo');
+      gradient.addColorStop(1, 'violet');
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    });
+    // Hex color picker event
+    document.getElementById('colorPicker')?.addEventListener('input', (event) => {
+      fillSquareWith(event.target.value);
+    });
+
+    // Reset button: restore the canvas to the state it had when the page loaded
+    document.getElementById('resetbutton')?.addEventListener('click', () => {
+      if (initialSquareImageData) {
+        ctx.putImageData(initialSquareImageData, 0, 0);
+      } else {
+        // Fallback: re-fill with the default color used on load
+        fillSquareWith('cyan');
+      }
+    });
+//rainbow2 button    
+(function() {
+    let hue = 0; // starting hue value (0 = red)
+    const speed = 2; // degrees per frame
+    let isAnimating = false;
+    let animationId = null;
+
+    function animate() {
+        // Update hue value (0-360)
+        hue = (hue + speed) % 360;
+
+        // Apply color to the square canvas
+        ctx.fillStyle = `hsl(${hue}, 100%, 50%)`;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // Apply color to the button
+        document.getElementById('rainbow2').style.backgroundColor = `hsl(${hue}, 100%, 50%)`;
+
+        // Request the next frame if still animating
+        if (isAnimating) {
+            animationId = requestAnimationFrame(animate);
+        }
+    }
+
+    // Start animation on button click
+    document.getElementById('rainbow2').addEventListener('click', () => {
+        isAnimating = !isAnimating;
+        if (isAnimating) {
+            animationId = requestAnimationFrame(animate);
+        } else {
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+            }
+        }
+    });
+})();
+</script>
+</body>
+</html>

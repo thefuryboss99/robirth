@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<div style="text-align:center;">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ro-birth</title>      
+<div>
+<p style="position:absolute;top: 110px;left: 660px;">Games:</p>
+<style>
+  @font-face {
+    font-family: 'Roblox2017-v6dO';
+    src: url('Roblox2017-v6dO.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  body {
+    font-family: 'Roblox2017-v6dO', sans-serif;
+    background-color: grey;
+    color: white;
+    text-align: center;
+  }
+p.double {border-style: double;}
+/* Define the animation */
+@keyframes colorChange {
+  0% { background-color: gray; }
+  50% { background-color: black; }
+  100% { background-color: gray; } 
+}
+
+body {
+  animation: colorChange 30s linear infinite;
+}
+  button {
+  background-color: white;
+  transition: background-color 0.5s ease;
+}
+
+button:hover {
+  background-color: red;
+}
+.hide {
+  display: none;
+}
+    
+.marketplace:hover + .hide {
+  display: block;
+  color: red;
+}
+.marketplace {
+  position: relative;
+  display: inline-block;
+}
+
+.marketplace .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.marketplace .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.marketplace:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+    button {
+    font-family: 'Roblox2017-v6dO', sans-serif;
+    background-color: white;
+    color: white;
+    text-align: center;
+font-size: 7.5px;
+  }
+</style>
+</div>
+</head>
+<body bgcolor="grey">
+  <h1 style="background-color: red;">RO-birth</h1>
+  <p class="double">Welcome to RO-birth, a Roblox backup in case roblox gets deleted. This website is still in development and will be updated frequently. Enjoy your stay!</p>
+  <p style="position: absolute;bottom:75px">tip: hover your mouse on certain texts, try to find them all !</p>
+  <a href="blox piece.html" style="position: absolute;top: 150px;left: 635px;">
+    <img src="blox_piece_rocket_update.png" alt="blox piece" style="width:128px;height:128px;">
+  </a>
+<a href="Marketplace.html">
+  <button class="button" style="border-radius: 25px;height:75px;width:75px;position: absolute;bottom: 0px;right: 620px; "
+</a>
+<div class="marketplace" style="color: white;font-size: 15px;">CUBE
+  <span class="tooltiptext">Marketplace</span>
+</div>
+<a href="test.html">
+<button style="border-radius: 25px;height:75px;width:75px;position: absolute;bottom: 0px;right: 0px;font-size: 15px; ">
+dev's test
+</button>
+</a>
+</body>
+</html>

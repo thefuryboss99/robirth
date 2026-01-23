@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>game</title>
+   <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background: #f9f9f9; }
+        h1 { color: #333; }
+        p { color: #555; }
+        .container { max-width: 600px; margin: auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);}
+    @keyframes colorChange {
+  0% { background-color: white; }
+  50% { background-color: grey; }
+  100% { background-color: white; } 
+}
+
+body {
+  animation: colorChange 30s linear infinite;
+}
+    </style>
+<link rel="stylesheet" href="Game 2.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Blox piece</h1>
+        <p>This page is still under development and in the next few weeks will look better</p>
+    </div>
+   <div style="position:absolute; bottom: 80px; left: 20px; display:flex; align-items:center; gap:12px;">
+        <progress id="health" value="0" max="100" style="width:300px; height:14px;"></progress>
+        <div id="healthText" aria-live="polite" style="min-width:120px; color:#333; font-weight:600;">0% (0.00s)</div>
+<p>[Z]  missile fist</p>
+    </div>
+<style>
+    button {
+  background-color: gold;
+  transition: background-color 0.5s ease;
+}
+
+button:hover {
+  background-color: white;
+}
+</style>
+<script>
+var canvas = document.createElement('canvas'); 
+b = canvas.getContext('2d');
+
+canvas.width = 1300;
+canvas.height = 300;
+
+document.body.appendChild(canvas);
+
+b.fillStyle = 'black';
+b.fillRect(0, 0, canvas.width, canvas.height);
+
+var posX = 200;
+posY = 200;
+dx = 0;
+dy = 0;
+
+setInterval(function() {
+    b.fillStyle = 'black';
+    b.fillRect(0, 0, canvas.width, canvas.height);
+    
+    posX += dx;
+    posY += dy;
+    if (posX > canvas.width) posX = 0;
+    if (posX < 0) posX = canvas.width;
+    if (posY > canvas.height) posY = 0;
+    if (posY < 0) posY = canvas.height;
+    b.fillStyle = 'cyan';
+    b.fillRect(posX, posY, 15, 15);
+}, 10);
+document.addEventListener('keydown', function(event) {
+    if(event.key === 'a') {
+        dx = 1; dy = 0;
+    } else if(event.key === 'd') {
+        dx = -1; dy = 0;
+    } else if(event.key === 'w') {
+        dx = 0; dy = -1;
+    } else if(event.key === 's') {
+        dx = 0; dy = 1;
+    }
+    if(event.key === 'A') {
+        dx = 2; dy = 0;
+    } else if(event.key === 'D') {
+        dx = -2; dy = 0;
+    } else if(event.key === 'W') {
+        dx = 0; dy = -2;
+    } else if(event.key === 'S') {
+        dx = 0; dy = 2;
+    }
+    const progress = document.getElementById('health');
+        const healthText = document.getElementById('healthText');
+        let progressAnim = null;
+        let cooldownActive = false;
+        let cooldownDuration = 5000; // 5 seconds
+        let cooldownStart = 0;
+
+        function cancelProgress() {
+            if (progressAnim !== null) {
+                cancelAnimationFrame(progressAnim);
+                progressAnim = null;
+            }
+        }
+
+        // Start the cooldown/progress. If already cooling, this does nothing.
+        function startProgress(durationMs = 5000) {
+            if (cooldownActive) return; // reflect in-game state: can't start while on cooldown
+            cooldownActive = true;
+            cooldownDuration = durationMs;
+            cooldownStart = performance.now();
+            progress.value = 0;
+
+            function step(now) {
+                const elapsed = now - cooldownStart;
+                const t = Math.min(1, elapsed / cooldownDuration);
+                progress.value = t * 100;
+                const remaining = Math.max(0, (cooldownDuration - elapsed) / 1000);
+                healthText.textContent = `${Math.round(progress.value)}% (${remaining.toFixed(2)}s)`;
+
+                if (t < 1) {
+                    progressAnim = requestAnimationFrame(step);
+                } else {
+                    // finished
+                    progressAnim = null;
+                    progress.value = 100;
+                    healthText.textContent = `100% (0.00s)`;
+                    // small grace to show full then clear cooldown
+                    setTimeout(() => { cooldownActive = false; }, 150);
+                }
+            }
+
+            cancelProgress();
+            progressAnim = requestAnimationFrame(step);
+        }
+
+        // Optional helper to query if the in-game action is allowed
+        function canStartAction() { return !cooldownActive; }
+
+        // Key handler: pressing Z attempts to start the cooldown action
+        document.addEventListener('keydown', function (e) {
+            if (!e.key) return;
+            if (e.key.toLowerCase() === 'z') {
+                if (canStartAction()) {
+                    startProgress(5000);
+                } else {
+                    // brief visual feedback if desired: flash text
+                    const prev = healthText.style.color;
+                    healthText.style.color = '#c33';
+                    setTimeout(() => { healthText.style.color = prev; }, 150);
+                }
+            }
+        });
+
+        // Initialize text
+        healthText.textContent = '0% (0.00s)';
+        
+
+
+
+
+
+});
+
+</script>
+<canvas id="square"></canvas>
+<script src="Game 2.js"></script>
+<a href="blox piece.html">
+<button class="button" style="position: absolute;top:0px;left:0px;color:orange;border-radius: 7px;width:100px;height: 50px;font-size: 25px;">back</button>
+</a>
+</body>
+</html>
