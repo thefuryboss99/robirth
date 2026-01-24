@@ -7,7 +7,13 @@
 </head>
 <body>
 <style>
-    @keyframes colorChange {
+@media screen {
+  @media (max-width: 320px) and (max-height: 480px) and (orientation: portrait) {
+    body {
+    }
+  }
+}
+@keyframes colorChange {
   0% { background-color: gray; }
   25% { background-color: cyan; }
   50% { background-color: blue; } 
