@@ -7,11 +7,27 @@
 </head>
 <body>
 <style>
-@media screen {
-  @media (min-width: 480px) and (min-height: 320px) and (orientation: landscape) {
+@media screen and (min-width: 480px) and (min-height: 320px) and (orientation: landscape) {
     body {
     }
-  }
+}
+/* Mobile first - default styles */
+body {
+    font-size: 14px;
+}
+
+/* Tablets and larger */
+@media (min-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+}
+
+/* Desktops and larger */
+@media (min-width: 1024px) {
+    body {
+        font-size: 18px;
+    }
 }
 @keyframes colorChange {
   0% { background-color: gray; }
@@ -514,9 +530,9 @@ button:hover {
 <canvas id="veronicaKnifeA" style="transform:rotate(35deg);border-radius: 75%; background-color:silver;width: 6px; height: 50px;position: absolute;bottom: 487.5px;left: 728px;"></canvas>
 <canvas id="veronicaKnifeB" style="transform:rotate(35deg); background-color:silver;width: 4px; height: 50px;position: absolute;bottom: 470px;left: 715px;"></canvas>
 <canvas id="veronicaKnifeC" style="transform:rotate(35deg); background-color:black;width: 4px; height: 50px;position: absolute;bottom: 450px;left: 700px;"></canvas>
-<canvas id="veronicaKnifeD" style=" background-color:white;width: 5px; height: 5px;position: absolute;bottom: 467.5px;left: 700px;"></canvas>
-<canvas id="veronicaKnifeE" style=" background-color:white;width: 5px; height: 5px;position: absolute;bottom: 457.5px;left: 692.5px;"></canvas>
-<canvas id="veronicaKnifeF" style=" background-color:white;width: 5px; height: 5px;position: absolute;bottom: 477.5px;left: 707.5px;"></canvas>
+<canvas id="veronicaKnifeD" style=" background-color:white;width:3px; height: 3px;position: absolute;bottom: 467.5px;left: 696.25px;"></canvas>
+<canvas id="veronicaKnifeE" style=" background-color:white;width: 3px; height: 3px;position: absolute;bottom: 457.5px;left: 690px;"></canvas>
+<canvas id="veronicaKnifeF" style=" background-color:white;width: 3px; height: 3px;position: absolute;bottom: 477.5px;left: 702.5px;"></canvas>
 <!--canvas for the icons (hats)-->
 <!--canvas for tophatIcon-->
 <canvas id="tophatIconA" style=" background-color:black;width: 30px; height: 5px;position: absolute;bottom: 192.5px;left: 45px;"></canvas>
@@ -926,5 +942,3 @@ button:hover {
 </script>
 </body>
 </html>
-
-
