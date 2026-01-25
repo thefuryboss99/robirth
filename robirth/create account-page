@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<div style="text-align:center;">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Honk:MORF@15&display=swap" rel="stylesheet">
+  <meta name="google-site-verification" content="1wxhlLfthDXj_aOXyHErHay5LK_jeyFa4gQ06c0j5HI" />
+    <meta property="og:site_name" content="RoBirth-login">
+    <meta name="description" content="Robirth Login Page">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ro-birth  create account-page</title>      
+<div>
+<style>
+  @font-face {
+    font-family: 'Roblox2017-v6dO';
+    src: url('Roblox2017-v6dO.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  body {
+    font-family: 'Roblox2017-v6dO', sans-serif;
+    background-color: grey;
+    color: white;
+    text-align: center;
+  }
+p.double {border-style: double;}
+/* Define the animation */
+@keyframes colorChange {
+  0% { background-color: gray; }
+  50% { background-color: black; }
+  100% { background-color: gray; } 
+}
+
+body {
+  animation: colorChange 30s linear infinite;
+}
+  button  {
+  background-color: white;
+  transition: background-color 0.5s ease;
+}
+
+button:hover {
+  background-color: red;
+}
+.hide {
+  display: none;
+}
+    
+.marketplace:hover + .hide {
+  display: block;
+  color: red;
+}
+.marketplace {
+  position: relative;
+  display: inline-block;
+}
+
+.marketplace .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-family: "Honk", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "MORF" 15,
+    "SHLN" 50;
+}
+
+.marketplace .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.marketplace:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+    button {
+    font-family: 'Roblox2017-v6dO', sans-serif;
+    background-color: white;
+    color: white;
+    text-align: center;
+font-size: 7.5px;
+  }
+</style>
+</div>
+</head>
+<body bgcolor="grey">
+  <h1 style="background-color: red;">RO-birth [pre-beta] CREATE ACCOUNT</h1>
+<p style="position:absolute;top: 130px;left: 630px;">username</p>
+<p style="position:absolute;top: 250px;left: 630px;">password</p>
+<input type="text" id="username" style="width: 375px; height:62.5px; border-radius: 5px; position:absolute;top: 170px;left: 500px;"/>
+<input type="password" id="password" style="width: 375px; height:62.5px; border-radius: 5px; position:absolute;top: 300px;left: 500px;"/>
+<button style="width: 380px; height:62.5px; border-radius: 5px; position:absolute;top: 400px;left: 500px;color:white;font-size:25px;">create and login</button>
+<a href="login page.html">
+<p style="position:absolute;top: 465px;left: 545px;">already have an account ?</p>
+</a>
+<script>
+  const button = document.querySelector('button');
+  button.addEventListener('click', () => {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    // Here you would typically send the username and password to your server
+    // For demonstration, we'll just log them to the console
+    console.log('Creating account with Username:', username, 'Password:', password);
+
+    // Simulate successful account creation and redirect to login page
+    alert('Account created successfully! Redirecting to login page. (click OK)');
+    window.location.href = 'login page.html';
+  });
+</script>
+</body>
+</html>
