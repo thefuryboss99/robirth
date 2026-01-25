@@ -9,11 +9,12 @@
 <style>
 @media screen and (min-width: 480px) and (min-height: 320px) and (orientation: landscape) {
     body {
+        font-size: 15px;
     }
 }
 /* Mobile first - default styles */
 body {
-    font-size: 14px;
+    font-size: 15px;
 }
 
 /* Tablets and larger */
@@ -396,7 +397,7 @@ button:hover {
 <canvas id="accessoriesCanvasShow" width="650" height="225" style="border: 5px solid black;position: absolute;bottom:10px;left: 10px;display: none;"></canvas>
 <canvas id="soonCanvasShow" width="650" height="225" style="border: 5px solid black;background-color:  white;position: absolute;bottom:10px;left: 10px;display: none;"></canvas>
 <!-- button for new canvas-->
-<button class="button" id="newcube" style="background-color: red;width: 50px;height: 50px;position: absolute;left: 35px; bottom: 175px; "></button>
+<button class="button" id="newcube" style="background-color: green;color: greenyellow;width: 50px;height: 50px;position: absolute;left: 35px; bottom: 175px; ">new cube (save)</button>
 <!-- buttons for colors-->
 <button class="button" id="red" style="background-color: red;width: 50px;height: 50px;position: absolute;left: 35px; bottom: 175px; "></button>
     <button class="button" id="orange" style="background-color: orange;width: 50px;height: 50px;position: absolute;left: 110px; bottom: 175px; "></button>
@@ -430,13 +431,38 @@ button:hover {
       <button class="button" id="accessories7" style="background-color: gray;width: 50px;height: 50px;position: absolute;left: 485px; bottom: 175px; "></button>
      <button class="button" id="accessories8" style="background-color: gray;width: 50px;height: 50px;position: absolute;left: 560px; bottom: 175px; "></button>
      <button class="button" id="accessories9" style="background-color: gray;width: 50px;height: 50px;position: absolute;left: 35px; bottom: 100px; "></button>
+<!-- buttons for cubeslots-->
+    <button class="button" id="Slot1" style="background-color: gray;width: 50px;height: 50px;position: absolute;left: 110px; bottom: 175px; ">Load slot 1</button>
+      <button class="button" id="Slot2" style="background-color: gray;width: 50px;height: 50px;position: absolute;left: 185px; bottom: 175px; ">Load slot 2</button>
+<button class="button" id="Slot3" style="background-color: gray;width: 50px;height: 50px;position: absolute;left: 260px; bottom: 175px; ">Load slot 3</button>
+  <button class="button" id="Slot4" style="background-color: gray;width: 50px;height: 50px;position: absolute;left: 335px; bottom: 175px; ">Load slot 4</button>
+    <button class="button" id="Slot5" style="background-color: gray;width: 50px;height: 50px;position: absolute;left: 410px; bottom: 175px; ">Load slot 5</button>
+      <button class="button" id="Slot6" style="background-color: gray;width: 50px;height: 50px;position: absolute;left: 485px; bottom: 175px; ">Load slot 6</button>
+     <button class="button" id="Slot7" style="background-color: gray;width: 50px;height: 50px;position: absolute;left: 560px; bottom: 175px; ">Load slot 7</button>
+     <button class="button" id="Slot8" style="background-color: gray;width: 50px;height: 50px;position: absolute;left: 35px; bottom: 100px; ">Load slot 8</button>
+    <button class="button" id="Slot9" style="background-color: gray;width: 50px;height: 50px;position: absolute;left: 110px; bottom: 100px; ">Load slot 9</button>
+      <button class="button" id="Slot10" style="background-color: gray;width: 50px;height: 50px;position: absolute;left: 185px; bottom: 100px; ">Load slot 10</button>
+<button class="button" id="Slot11" style="background-color: gray;width: 50px;height: 50px;position: absolute;left: 260px; bottom: 100px; ">Load slot 11</button>
+  <button class="button" id="Slot12" style="background-color: gray;width: 50px;height: 50px;position: absolute;left: 335px; bottom: 100px; ">Load slot 12</button>
+    <button class="button" id="Slot13" style="background-color: gray;width: 50px;height: 50px;position: absolute;left: 410px; bottom: 100px; ">Load slot 13</button>
+      <button class="button" id="Slot14" style="background-color: gray;width: 50px;height: 50px;position: absolute;left: 485px; bottom: 100px; ">Load slot 14</button>
+     <button class="button" id="Slot15" style="background-color: gray;width: 50px;height: 50px;position: absolute;left: 560px; bottom: 100px; ">Load slot 15</button>
+     <button class="button" id="Slot16" style="background-color: gray;width: 50px;height: 50px;position: absolute;left: 35px; bottom: 25px; ">Load slot 16</button>
+    <button class="button" id="Slot17" style="background-color: gray;width: 50px;height: 50px;position: absolute;left: 110px; bottom: 25px; ">Load slot 17</button>
+      <button class="button" id="Slot18" style="background-color: gray;width: 50px;height: 50px;position: absolute;left: 185px; bottom: 25px; ">Load slot 18</button>
+     <button class="button" id="Slot19" style="background-color: gray;width: 50px;height: 50px;position: absolute;left: 260px; bottom: 25px; ">Load slot 19</button>
+  <button class="button" id="Slot20" style="background-color: gray;width: 50px;height: 50px;position: absolute;left: 335px; bottom: 25px; ">Load slot 20</button>
+    <button class="button" id="Slot21" style="background-color: gray;width: 50px;height: 50px;position: absolute;left: 410px; bottom: 25px; ">Load slot 21</button>
+      <button class="button" id="Slot22" style="background-color: gray;width: 50px;height: 50px;position: absolute;left: 485px; bottom: 25px; ">Load slot 22</button>
+     <button class="button" id="Slot23" style="background-color: gray;width: 50px;height: 50px;position: absolute;left: 560px; bottom: 25px; ">Load slot 23</button>
      <!-- Buttons (each shows its assigned canvas) -->
 <button class="button" id="cubesbutton" style="position: absolute;bottom:260px;left:35px;width:50px;height:50px;background-color:grey;">cubes</button>
 <button class="button" id="colorsbutton" style="position: absolute;bottom:260px;left:110px;width:50px;height:50px;background-color:grey;">colors</button>
 <button class="button" id="hatsbutton" style="position: absolute;bottom:260px;left:185px;width:50px;height:50px;background-color:grey;">hats</button>
 <button class="button" id="accessoriesbutton" style="position: absolute;bottom:260px;left:255px;width:100px;height:50px;background-color:grey;">accessories</button>
-<button class="button" id="soonbutton" style="position: absolute;bottom:260px;left:435px;width:225px;height:50px;background-color:grey;">coming soon!</button>
-<button class="button" id="resetbutton" style="position: absolute;bottom:260px;left:370px;width:50px;height:50px;background-color:grey;">reset</button>
+<button class="button" id="deletebutton" style="position: absolute;bottom:260px;left:370px;width:50px;height:50px;background-color:red; color:white;">delete</button>
+<button class="button" id="resetbutton" style="position: absolute;bottom:260px;left:430px;width:50px;height:50px;background-color:red; color:white;">reset</button>
+<button class="button" id="soonbutton" style="position: absolute;bottom:260px;left:500px;width:160px;height:50px;background-color:grey;">coming soon!</button>
 <canvas id="resetted"></canvas>
 <!--canvas for the hats-->
 <!-- canvas for tophat-->
@@ -628,7 +654,24 @@ button:hover {
 <canvas id="veronicaKnifeIconE" style=" background-color:white;width: 2px; height: 2px;position: absolute;bottom: 117.5px;left: 53.75px;"></canvas>
 <canvas id="veronicaKnifeIconF" style=" background-color:white;width: 2px; height: 2px;position: absolute;bottom: 122.5px;left: 57.5px;"></canvas>
 <script>
-        /* ===============================
+// Save data
+localStorage.setItem("key", "value");
+
+// Retrieve data
+let value = localStorage.getItem("key");
+
+// Remove a specific item
+localStorage.removeItem("key");
+
+// Clear all localStorage data
+localStorage.clear();
+key = 'marketplaceVisited';
+if (!localStorage.getItem(key)) {
+     //First time visit
+    alert("Welcome to the Marketplace! Explore and customize your character with various items. (remember the UI doesn't places correctly on mobile) [Click OK to continue]");
+    localStorage.setItem(key, 'true');
+  }
+/* ===============================
            CANVAS + BUTTON SWITCH SYSTEM
         ================================ */
 
@@ -641,7 +684,7 @@ button:hover {
         ];
 
         const buttonGroups = {
-            cubesCanvasShow: [],
+            cubesCanvasShow: ['newcube','Slot1','Slot2','Slot3','Slot4','Slot5','Slot6','Slot7','Slot8','Slot9','Slot10','Slot11','Slot12','Slot13','Slot14','Slot15','Slot16','Slot17','Slot18','Slot19','Slot20','Slot21','Slot22','Slot23'],
             colorsCanvasShow: ['red','orange','yellow','green','blue','purple','pink','white','black','rainbow1','rainbow2','colorPicker'],
             hatsCanvasShow: ['hat1','hat2','hat3','hat4','hat5','hat6','hat7','hat8', 'hat9',
                              'tophatIconA', 'tophatIconB', 'tophatIconC',
@@ -665,7 +708,7 @@ button:hover {
                                     'gojoIconA', 'gojoIconB',
                                     'veronicaKnifeIconA', 'veronicaKnifeIconB', 'veronicaKnifeIconC', 'veronicaKnifeIconD', 'veronicaKnifeIconE', 'veronicaKnifeIconF'],
                                     
-            soonCanvasShow: ['newcube'],
+            soonCanvasShow: [],
         };
 
         const allButtons = Object.values(buttonGroups).flat();
