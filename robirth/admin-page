@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<div style="text-align:center;">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Honk:MORF@15&display=swap" rel="stylesheet">
+  <meta name="google-site-verification" content="1wxhlLfthDXj_aOXyHErHay5LK_jeyFa4gQ06c0j5HI" />
+    <meta property="og:site_name" content="RoBirth">
+    <meta name="description" content="Robirth Game place">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ro-birth</title>      
+<div>
+<p style="position:absolute;top: 110px;left: 660px;">Games:</p>
+<style>
+  @font-face {
+    font-family: 'Roblox2017-v6dO';
+    src: url('Roblox2017-v6dO.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  body {
+    font-family: 'Roblox2017-v6dO', sans-serif;
+    background-color: grey;
+    color: white;
+    text-align: center;
+  }
+p.double {border-style: double;}
+/* Define the animation */
+@keyframes colorChange {
+  0% { background-color: gray; }
+  50% { background-color: black; }
+  100% { background-color: gray; } 
+}
+
+body {
+  animation: colorChange 30s linear infinite;
+}
+  button {
+  background-color: white;
+  transition: background-color 0.5s ease;
+}
+
+button:hover {
+  background-color: red;
+}
+.hide {
+  display: none;
+}
+    
+.marketplace:hover + .hide {
+  display: block;
+  color: red;
+}
+.marketplace {
+  position: relative;
+  display: inline-block;
+}
+
+.marketplace .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-family: "Honk", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "MORF" 15,
+    "SHLN" 50;
+}
+
+.marketplace .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.marketplace:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+    button {
+    font-family: 'Roblox2017-v6dO', sans-serif;
+    background-color: white;
+    color: white;
+    text-align: center;
+font-size: 7.5px;
+  }
+</style>
+</div>
+</head>
+<body bgcolor="grey">
+  <h1 style="background-color: red;">RO-birth [pre-beta] {Admin}</h1>
+  <p class="double">Welcome to RO-birth thefuryboss99.</p>
+  <a href="blox piece.html" style="position: absolute;top: 150px;left: 635px;">
+    <img src="blox_piece_rocket_update.png" alt="blox piece" style="width:128px;height:128px;">
+  </a>
+<a href="Marketplace.html">
+  <button class="button" style="border-radius: 25px;height:75px;width:75px;position: absolute;bottom: 0px;right: 620px; "
+</a>
+<div class="marketplace" style="color: white;font-size: 15px;">CUBE
+  <span class="tooltiptext">Marketplace</span>
+</div>
+<a href="test.html">
+<button style="border-radius: 25px;height:75px;width:75px;position: absolute;bottom: 0px;right: 0px;font-size: 15px; ">
+dev's test
+</button>
+</a>
+</body>
+</html>
