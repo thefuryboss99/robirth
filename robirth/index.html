@@ -108,19 +108,41 @@ font-size: 7.5px;
 </head>
 <body bgcolor="grey">
   <h1 style="background-color: red;">RO-birth [pre-beta] LOGIN</h1>
-<p style="position:absolute;top: 130px;left: 630px;">username</p>
-<p style="position:absolute;top: 250px;left: 630px;">password</p>
-<input type="text" style="width: 375px; height:62.5px; border-radius: 5px; position:absolute;top: 170px;left: 500px;"/>
-<input type="password" style="width: 375px; height:62.5px; border-radius: 5px; position:absolute;top: 300px;left: 500px;"/>
-<button id="loginButton" style="width: 380px; height:62.5px; border-radius: 5px; position:absolute;top: 400px;left: 500px;color:white;font-size:25px;">login</button>
+<form id="loginForm">
+  <label style="position:absolute;top: 130px;left: 630px;">username</label>
+<label style="position:absolute;top: 250px;left: 630px;">password</label>
+<input type="text" placeholder="Enter username" id="username" style="width: 375px; height:62.5px; border-radius: 5px; position:absolute;top: 170px;left: 500px;"/>
+<input type="password" placeholder="Enter password" id="password" style="width: 375px; height:62.5px; border-radius: 5px; position:absolute;top: 300px;left: 500px;"/>
+<button type="submit"id="loginButton" style="width: 380px; height:62.5px; border-radius: 5px; position:absolute;top: 400px;left: 500px;color:white;font-size:25px;">login</button>
+</form>
 <a href="create account-page.html">
 <p style="position:absolute;top: 465px;left: 545px;">don't have an account yet ?</p>
 </a>
 <script>
-    document.getElementById("loginButton").addEventListener("click", function() {
-        alert("Login functionality is not implemented yet. (click OK to proceed to RO-birth.)");
-        window.location.href = "ro-birth.html";
-    });
+document.getElementById("loginForm").addEventListener("submit", function(e) {
+e.preventDefault();
+
+let username = document.getElementById("username").value.trim();
+let password = document.getElementById("password").value.trim();
+
+if(username === "" || password === "") {
+alert("Please fill in all fields.");
+return;
+}
+
+// Check admin account
+if(username === "admin" && password === "1234") {
+alert("Login successful!");
+window.location.href = "robirth-admin.html";
+} 
+// Check registered accounts from localStorage
+else if(localStorage.getItem("username") === username && localStorage.getItem("password") === password) {
+alert("Login successful!");
+window.location.href = "ro-birth.html";
+} else {
+alert("Invalid username or password.");
+}
+});
 </script>
 </body>
 </html>
