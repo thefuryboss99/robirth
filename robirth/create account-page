@@ -108,28 +108,34 @@ font-size: 7.5px;
 </head>
 <body bgcolor="grey">
   <h1 style="background-color: red;">RO-birth [pre-beta] CREATE ACCOUNT</h1>
-<p style="position:absolute;top: 130px;left: 630px;">username</p>
-<p style="position:absolute;top: 250px;left: 630px;">password</p>
-<input type="text" id="username" style="width: 375px; height:62.5px; border-radius: 5px; position:absolute;top: 170px;left: 500px;"/>
-<input type="password" id="password" style="width: 375px; height:62.5px; border-radius: 5px; position:absolute;top: 300px;left: 500px;"/>
-<button style="width: 380px; height:62.5px; border-radius: 5px; position:absolute;top: 400px;left: 500px;color:white;font-size:25px;">create and login</button>
+<form id="createAccountForm">
+  <label style="position:absolute;top: 130px;left: 630px;">username</label>
+<label style="position:absolute;top: 250px;left: 630px;">password</label>
+<label style="position:absolute;top: 380px;left: 590px;">confirm password</label>
+<input type="text" id="Username" placeholder="Enter username" style="width: 375px; height:62.5px; border-radius: 5px; position:absolute;top: 170px;left: 500px;"/>
+<input type="password" id="Password" placeholder="Enter password" style="width: 375px; height:62.5px; border-radius: 5px; position:absolute;top: 300px;left: 500px;"/>
+<input type="password" id="confirmPassword" placeholder="Confirm password" style="width: 375px; height:62.5px; border-radius: 5px; position:absolute;top: 430px;left: 500px;"/>
+<button style="width: 380px; height:62.5px; border-radius: 5px; position:absolute;top: 525px;left: 500px;color:white;font-size:25px;">create and login</button>
+</form>
 <a href="login page.html">
-<p style="position:absolute;top: 465px;left: 545px;">already have an account ?</p>
+<p style="position:absolute;top: 575px;left: 545px;">already have an account ?</p>
 </a>
 <script>
-  const button = document.querySelector('button');
-  button.addEventListener('click', () => {
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
+// Registration
+document.getElementById('createAccountForm').addEventListener('submit', function(e) {
+e.preventDefault();
+let Username = document.getElementById('Username').value;
+let Password = document.getElementById('Password').value;
+let confirmPassword = document.getElementById('confirmPassword').value;
 
-    // Here you would typically send the username and password to your server
-    // For demonstration, we'll just log them to the console
-    console.log('Creating account with Username:', username, 'Password:', password);
-
-    // Simulate successful account creation and redirect to login page
-    alert('Account created successfully! Redirecting to login page. (click OK)');
-    window.location.href = 'login page.html';
-  });
+if(Password !== confirmPassword) {
+  alert('Passwords do not match.');
+} else {
+  localStorage.setItem('username', Username);
+  localStorage.setItem('password', Password);
+  localStorage.setItem('confirmPassword', confirmPassword);
+alert('Registration successful!');
+}});
 </script>
 </body>
 </html>
