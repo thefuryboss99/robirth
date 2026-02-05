@@ -13,8 +13,66 @@
     }
 }
 /* Mobile first - default styles */
-body {
-    font-size: 15px;
+    .bigtext{
+        font-size: 12.5px;
+        position: calc(100%/2) ;
+    }
+    .tips{
+        font-size: 12.5px;
+        position: calc(100%/2) ;
+    }
+    .button{
+        width: 25px;
+        height: 25px;
+        position: calc(100%/2) ;
+    }
+
+    .tooltiptext {
+        font-size: 6.25px;
+        position: calc(100%/2) ;
+    }
+
+    .showncanvas {
+        width: 325px;
+        height: 112.5px;
+        position: calc(100%/2) ;
+    }
+
+    .boxescanvas{
+      width: 325px;
+      height: 150px;
+      position: calc(100%/2) ;
+    }
+
+    .tipbox{
+      width: 162.5px;
+      height: 150px;
+      position: calc(100%/2) ;
+    }
+
+      .previewbox{
+        width: 75px;
+        height: 75px;
+        position: calc(100%/2) ;
+      }
+  
+      .previewresult{
+        width: 25px;
+        height: 25px;
+        position: calc(100%/2) ;
+      }
+
+
+.customization{
+  width: calc(100%/2);
+  height: calc(100%/2);
+  position: calc(100%/2) ;
+}
+
+.customizationIcon{
+  width: calc(100%/2);
+  height: calc(100%/2);
+  position: calc(100%/2) ;
 }
 
 /* Tablets and larger */
@@ -345,12 +403,12 @@ p.double {border-style: double;}
   visibility: visible;
   opacity: 1;
 }
-    button {
+    .backbutton {
   background-color: red;
   transition: background-color 0.5s ease;
 }
 
-button:hover {
+.backbutton:hover {
   background-color: white;
 }
 </style>
@@ -372,30 +430,30 @@ button:hover {
   <div class="reset" style="color: grey;font-size: 12.5px;position: absolute;bottom:290px;left:375px;">text
   <span class="tooltiptext">resets the canvas back to original</span>
   </div>
-<a href="index.html">
-<button class="button" style="position: absolute;top:0px;left:0px;color:white;border-radius: 7px;width:100px;height: 50px;font-size: 20px;">back</button>
+<a href="ro-birth.html">
+<button class="backbutton" style="position: absolute;top:0px;left:0px;color:white;border-radius: 7px;width:100px;height: 50px;font-size: 20px;">back</button>
 </a>
-<p>Preview</p>
-<p style="font-size: 25px;position: absolute;left: 800px; bottom:310px">info</p>
-<p style="font-size: 25px;position: absolute;left: 200px; bottom:310px">customization</p>
-<p style="font-size: 25px;position: absolute;left: 1150px; bottom:310px">tips</p>
-<p style="font-size:10px;position: absolute;left: 1032.5px; bottom:270px">⚠️make sure to save your changes before leaving this page.⚠️ (not available yet)</p>
-<p style="font-size:10px;position: absolute;left: 1032.5px; bottom:250px">click the rainbow color change (cyan box)</p>
-<p style="font-size:10px;position: absolute;left: 1032.5px; bottom:235px"> twice to be able to change color</p>
-<p style="font-size:10px;position: absolute;left: 1032.5px; bottom:210px"> don't click the icon but the button</p>
-<p style="font-size:10px;position: absolute;left: 1032.5px; bottom:195px"> to be able to select an hat/accesory</p>
+<p class="bigtext">Preview</p>
+<p class="bigtext"style="font-size: 25px;position: absolute;left: 800px; bottom:310px">info</p>
+<p class="bigtext"style="font-size: 25px;position: absolute;left: 200px; bottom:310px">customization</p>
+<p class="bigtext"style="font-size: 25px;position: absolute;left: 1150px; bottom:310px">tips</p>
+<p class="tips"style="font-size:10px;position: absolute;left: 1032.5px; bottom:270px">⚠️make sure to save your changes before leaving this page.⚠️ (not available yet)</p>
+<p class="tips"style="font-size:10px;position: absolute;left: 1032.5px; bottom:250px">click the rainbow color change (cyan box)</p>
+<p class="tips"style="font-size:10px;position: absolute;left: 1032.5px; bottom:235px"> twice to be able to change color</p>
+<p class="tips"style="font-size:10px;position: absolute;left: 1032.5px; bottom:210px"> don't click the icon but the button</p>
+<p class="tips"style="font-size:10px;position: absolute;left: 1032.5px; bottom:195px"> to be able to select an hat/accesory</p>
 <!-- canvas for the marketplace (the base) -->
-<canvas id="marketplaceCanvas" width="650" height="300" style="border: 5px solid black;position: absolute;bottom:10px;left: 10px;"></canvas>
-<canvas id="infoCanvas" width="650" height="300" style="border: 5px solid black;position: absolute;bottom:10px;left: 690px;"></canvas>
-<canvas id="tipsCanvas" width="325" height="300" style="border: 5px solid black;position: absolute;bottom:10px;left: 690px;"></canvas>
-<canvas id="PreviewCanvas" width="150" height="150" style="border: 5px solid black;position: absolute;bottom:400px;left:600px;"></canvas>
-<canvas id="square" style="border: 1px solid black;background-color: cyan;height: 50px;width: 50px;position: absolute;bottom:460px;left:650px;"></canvas>
+<canvas class="boxes"id="marketplaceCanvas" width="650" height="300" style="border: 5px solid black;position: absolute;bottom:10px;left: 10px;"></canvas>
+<canvas class="boxes"id="infoCanvas" width="650" height="300" style="border: 5px solid black;position: absolute;bottom:10px;left: 690px;"></canvas>
+<canvas class="tipbox"id="tipsCanvas" width="325" height="300" style="border: 5px solid black;position: absolute;bottom:10px;left: 690px;"></canvas>
+<canvas class="previewbox"id="PreviewCanvas" width="150" height="150" style="border: 5px solid black;position: absolute;bottom:400px;left:600px;"></canvas>
+<canvas class="previewresult"id="square" style="border: 1px solid black;background-color: cyan;height: 50px;width: 50px;position: absolute;bottom:460px;left:650px;"></canvas>
 <!-- Dedicated canvases for each button -->
-<canvas id="cubesCanvasShow" width="650" height="225" style="border: 5px solid black;background-color: red;position: absolute;bottom:10px;left: 10px;display: block;"></canvas>
-<canvas id="colorsCanvasShow" width="650" height="225" style="border: 5px solid black;position: absolute;bottom:10px;left: 10px;display: none;"></canvas>
-<canvas id="hatsCanvasShow" width="650" height="225" style="border: 5px solid black;position: absolute;bottom:10px;left: 10px;display: none;"></canvas>
-<canvas id="accessoriesCanvasShow" width="650" height="225" style="border: 5px solid black;position: absolute;bottom:10px;left: 10px;display: none;"></canvas>
-<canvas id="soonCanvasShow" width="650" height="225" style="border: 5px solid black;background-color:  white;position: absolute;bottom:10px;left: 10px;display: none;"></canvas>
+<canvas class= "showncanvas"id="cubesCanvasShow" width="650" height="225" style="border: 5px solid black;background-color: red;position: absolute;bottom:10px;left: 10px;display: block;"></canvas>
+<canvas class= "showncanvas"id="colorsCanvasShow" width="650" height="225" style="border: 5px solid black;position: absolute;bottom:10px;left: 10px;display: none;"></canvas>
+<canvas class= "showncanvas"id="hatsCanvasShow" width="650" height="225" style="border: 5px solid black;position: absolute;bottom:10px;left: 10px;display: none;"></canvas>
+<canvas class= "showncanvas"id="accessoriesCanvasShow" width="650" height="225" style="border: 5px solid black;position: absolute;bottom:10px;left: 10px;display: none;"></canvas>
+<canvas class= "showncanvas"id="soonCanvasShow" width="650" height="225" style="border: 5px solid black;background-color:  white;position: absolute;bottom:10px;left: 10px;display: none;"></canvas>
 <!-- button for new canvas-->
 <button class="button" id="newcube" style="background-color: green;color: greenyellow;width: 50px;height: 50px;position: absolute;left: 35px; bottom: 175px; ">new cube (save)</button>
 <!-- buttons for colors-->
@@ -466,193 +524,193 @@ button:hover {
 <canvas id="resetted"></canvas>
 <!--canvas for the hats-->
 <!-- canvas for tophat-->
-<canvas id="tophatA" style=" background-color:black;width: 75px; height: 12.5px;position: absolute;bottom: 512.5px;left: 637.5px;"></canvas>
-<canvas id="tophatB" style=" background-color:black;width: 50px; height: 50px;position: absolute;bottom: 515px;left: 650px;"></canvas>
-<canvas id="tophatC" style=" background-color:white;width: 50px; height: 12.5px;position: absolute;bottom: 525px;left: 650px;"></canvas>
+<canvas class="customization"id="tophatA" style=" background-color:black;width: 75px; height: 12.5px;position: absolute;bottom: 512.5px;left: 637.5px;"></canvas>
+<canvas class="customization"id="tophatB" style=" background-color:black;width: 50px; height: 50px;position: absolute;bottom: 515px;left: 650px;"></canvas>
+<canvas class="customization"id="tophatC" style=" background-color:white;width: 50px; height: 12.5px;position: absolute;bottom: 525px;left: 650px;"></canvas>
 <!-- canvas for cap-->
-<canvas id="capA" style=" background-color:black;width: 75px; height: 12.5px;position: absolute;bottom: 512.5px;left: 645px;"></canvas>
-<canvas id="capB" style=" background-color:black;width: 60px; height: 25px;position: absolute;bottom: 512.5px;left: 645px;"></canvas>
+<canvas class="customization"id="capA" style=" background-color:black;width: 75px; height: 12.5px;position: absolute;bottom: 512.5px;left: 645px;"></canvas>
+<canvas class="customization"id="capB" style=" background-color:black;width: 60px; height: 25px;position: absolute;bottom: 512.5px;left: 645px;"></canvas>
 <!-- canvas for beanie-->
-<canvas id="beanieA" style=" background-color:black;width: 75px; height: 12.5px;position: absolute;bottom: 512.5px;left: 640px;"></canvas>
-<canvas id="beanieB" style=" background-color:black;width: 60px; height: 25px;position: absolute;bottom: 512.5px;left: 647.5px;"></canvas>
-<canvas id="beanieC" style=" background-color:black;width: 45px; height: 37.5px;position: absolute;bottom: 512.5px;left: 655px;"></canvas>
+<canvas class="customization"id="beanieA" style=" background-color:black;width: 75px; height: 12.5px;position: absolute;bottom: 512.5px;left: 640px;"></canvas>
+<canvas class="customization"id="beanieB" style=" background-color:black;width: 60px; height: 25px;position: absolute;bottom: 512.5px;left: 647.5px;"></canvas>
+<canvas class="customization"id="beanieC" style=" background-color:black;width: 45px; height: 37.5px;position: absolute;bottom: 512.5px;left: 655px;"></canvas>
 <!--canvas for santahat-->
-<canvas id="santahatA" style=" background-color:red;width: 65px; height: 12.5px;position: absolute;bottom: 512.5px;left: 645px;"></canvas>
-<canvas id="santahatB" style=" background-color:red;width: 50px; height: 25px;position: absolute;bottom: 512.5px;left: 652.5px;"></canvas>
-<canvas id="santahatC" style=" background-color:red;width: 35px; height: 37.5px;position: absolute;bottom: 512.5px;left: 660px;"></canvas>
-<canvas id="santahatD" style=" background-color:red;width: 25px; height: 50px;position: absolute;bottom: 512.5px;left: 670px;"></canvas>
-<canvas id="santahatE" style=" background-color:red;width: 15px; height: 15px;position: absolute;bottom: 547.5px;left: 690px;"></canvas>
-<canvas id="santahatF" style=" background-color:white;width: 15px; height: 15px;position: absolute;bottom: 545px;left: 700px;"></canvas>
+<canvas class="customization"id="santahatA" style=" background-color:red;width: 65px; height: 12.5px;position: absolute;bottom: 512.5px;left: 645px;"></canvas>
+<canvas class="customization"id="santahatB" style=" background-color:red;width: 50px; height: 25px;position: absolute;bottom: 512.5px;left: 652.5px;"></canvas>
+<canvas class="customization"id="santahatC" style=" background-color:red;width: 35px; height: 37.5px;position: absolute;bottom: 512.5px;left: 660px;"></canvas>
+<canvas class="customization"id="santahatD" style=" background-color:red;width: 25px; height: 50px;position: absolute;bottom: 512.5px;left: 670px;"></canvas>
+<canvas class="customization"id="santahatE" style=" background-color:red;width: 15px; height: 15px;position: absolute;bottom: 547.5px;left: 690px;"></canvas>
+<canvas class="customization"id="santahatF" style=" background-color:white;width: 15px; height: 15px;position: absolute;bottom: 545px;left: 700px;"></canvas>
 <!-- canvas for propeller hat-->
-<canvas id="propellerA" style=" background-color:orange;width: 75px; height: 12.5px;position: absolute;bottom: 512.5px;left: 645px;"></canvas>
-<canvas id="propellerB" style=" background-color:orangered;width: 60px; height: 25px;position: absolute;bottom: 512.5px;left: 645px;"></canvas>
-<canvas id="propellerC" style=" border-width: 2px; border-color: black;background-color:white;width: 5px ; height: 25px;position: absolute;bottom: 512.5px;left: 675px;"></canvas>
-<canvas id="propellerD" style=" border-width: 2px; border-color: black; background-color:white;width: 25px ; height: 5px;position: absolute;bottom: 522.5px;left: 665px;"></canvas>
+<canvas class="customization"id="propellerA" style=" background-color:orange;width: 75px; height: 12.5px;position: absolute;bottom: 512.5px;left: 645px;"></canvas>
+<canvas class="customization"id="propellerB" style=" background-color:orangered;width: 60px; height: 25px;position: absolute;bottom: 512.5px;left: 645px;"></canvas>
+<canvas class="customization"id="propellerC" style=" border-width: 2px; border-color: black;background-color:white;width: 5px ; height: 25px;position: absolute;bottom: 512.5px;left: 675px;"></canvas>
+<canvas class="customization"id="propellerD" style=" border-width: 2px; border-color: black; background-color:white;width: 25px ; height: 5px;position: absolute;bottom: 522.5px;left: 665px;"></canvas>
 <!--canvas for izan hat-->
-<canvas id="izanA" style="background-color: rgb(255, 194, 114); width: 60px; height: 25px;position: absolute;bottom: 512.5px;left: 645px;"></canvas>
-<canvas id="izanB" style="background-color: rgb(255, 194, 114); width: 50px; height: 25px;position: absolute;bottom: 520px;left: 650px;"></canvas>
-<canvas id="izanC" style="background-color: rgb(247, 0, 185); width: 60px; height: 5px;position: absolute;bottom: 515px;left: 645px;"></canvas>
-<canvas id="izanD" style="background-color: rgb(247, 0, 185); width: 5px; height: 15px;position: absolute;bottom: 512.5px;left: 695px;"></canvas>
+<canvas class="customization"id="izanA" style="background-color: rgb(255, 194, 114); width: 60px; height: 25px;position: absolute;bottom: 512.5px;left: 645px;"></canvas>
+<canvas class="customization"id="izanB" style="background-color: rgb(255, 194, 114); width: 50px; height: 25px;position: absolute;bottom: 520px;left: 650px;"></canvas>
+<canvas class="customization"id="izanC" style="background-color: rgb(247, 0, 185); width: 60px; height: 5px;position: absolute;bottom: 515px;left: 645px;"></canvas>
+<canvas class="customization"id="izanD" style="background-color: rgb(247, 0, 185); width: 5px; height: 15px;position: absolute;bottom: 512.5px;left: 695px;"></canvas>
 <!-- canvas for medieval helmet-->
-<canvas id="helmetA" style=" background-color:red;width: 15px; height: 40px;position: absolute;bottom: 512.5px;left: 667.5px;" ></canvas>
-<canvas id="helmetB" style=" background-color:black;width: 60px; height: 12.5px;position: absolute;bottom: 512.5px;left: 645px;" ></canvas>
-<canvas id="helmetC" style=" background-color:black;width: 25px; height: 30px;position: absolute;bottom: 475px;left: 645px;" ></canvas>
-<canvas id="helmetD" style=" background-color:black;width: 25px; height: 30px;position: absolute;bottom: 475px;left: 680px;" ></canvas>
-<canvas id="helmetE" style=" background-color:black;width: 15px; height: 50px;position: absolute;bottom: 475px;left: 645px;" ></canvas>
-<canvas id="helmetF" style=" background-color:black;width: 15px; height: 50px;position: absolute;bottom: 475px;left: 690px;" ></canvas>
+<canvas class="customization"id="helmetA" style=" background-color:red;width: 15px; height: 40px;position: absolute;bottom: 512.5px;left: 667.5px;" ></canvas>
+<canvas class="customization"id="helmetB" style=" background-color:black;width: 60px; height: 12.5px;position: absolute;bottom: 512.5px;left: 645px;" ></canvas>
+<canvas class="customization"id="helmetC" style=" background-color:black;width: 25px; height: 30px;position: absolute;bottom: 475px;left: 645px;" ></canvas>
+<canvas class="customization"id="helmetD" style=" background-color:black;width: 25px; height: 30px;position: absolute;bottom: 475px;left: 680px;" ></canvas>
+<canvas class="customization"id="helmetE" style=" background-color:black;width: 15px; height: 50px;position: absolute;bottom: 475px;left: 645px;" ></canvas>
+<canvas class="customization"id="helmetF" style=" background-color:black;width: 15px; height: 50px;position: absolute;bottom: 475px;left: 690px;" ></canvas>
 <!--canvas for strawhat (i like luffy lololololol)-->
-<canvas id="strawhatA" style=" background-color:rgb(255, 194, 114);width: 75px; height: 12.5px;position: absolute;bottom: 512.5px;left: 640px;"></canvas>
-<canvas id="strawhatB" style=" background-color:rgb(255, 194, 114);width: 60px; height: 25px;position: absolute;bottom: 512.5px;left: 647.5px;"></canvas>
-<canvas id="strawhatC" style=" background-color:rgb(255, 194, 114);width: 45px; height: 37.5px;position: absolute;bottom: 512.5px;left: 655px;"></canvas>
-<canvas id="strawhatD" style=" background-color:red;width: 75px; height: 12.5px;position: absolute;bottom: 513px;left: 640px;"></canvas>
+<canvas class="customization"id="strawhatA" style=" background-color:rgb(255, 194, 114);width: 75px; height: 12.5px;position: absolute;bottom: 512.5px;left: 640px;"></canvas>
+<canvas class="customization"id="strawhatB" style=" background-color:rgb(255, 194, 114);width: 60px; height: 25px;position: absolute;bottom: 512.5px;left: 647.5px;"></canvas>
+<canvas class="customization"id="strawhatC" style=" background-color:rgb(255, 194, 114);width: 45px; height: 37.5px;position: absolute;bottom: 512.5px;left: 655px;"></canvas>
+<canvas class="customization"id="strawhatD" style=" background-color:red;width: 75px; height: 12.5px;position: absolute;bottom: 513px;left: 640px;"></canvas>
 <!--canvas for chopper hat-->
-<canvas id="choppyA" style=" background-color:rgb(255, 34, 82);width: 50px; height: 50px;position: absolute;bottom: 512.5px;left: 651px;"></canvas>
-<canvas id="choppyB" style=" background-color:rgb(255, 34, 82);width: 75px; height: 12.5px;position: absolute;bottom: 512.5px;left: 637.5px;"></canvas>
-<canvas id="choppyC" style="transform: rotate(45deg);background-color:white;width: 5px ; height: 25px;position: absolute;bottom: 515px;left: 675px;"></canvas>
-<canvas id="choppyD" style="transform: rotate(135deg);background-color:white;width: 5px ; height: 25px;position: absolute;bottom: 515px;left: 675px;"></canvas>
+<canvas class="customization"id="choppyA" style=" background-color:rgb(255, 34, 82);width: 50px; height: 50px;position: absolute;bottom: 512.5px;left: 651px;"></canvas>
+<canvas class="customization"id="choppyB" style=" background-color:rgb(255, 34, 82);width: 75px; height: 12.5px;position: absolute;bottom: 512.5px;left: 637.5px;"></canvas>
+<canvas class="customization"id="choppyC" style="transform: rotate(45deg);background-color:white;width: 5px ; height: 25px;position: absolute;bottom: 515px;left: 675px;"></canvas>
+<canvas class="customization"id="choppyD" style="transform: rotate(135deg);background-color:white;width: 5px ; height: 25px;position: absolute;bottom: 515px;left: 675px;"></canvas>
 <!--canvas for the accesories-->
 <!-- canvas for cool-->
-<canvas id="coolA" style=" background-color:black;width: 75px; height: 12.5px;position: absolute;bottom: 512.5px;left: 645px;"></canvas>
-<canvas id="coolB" style=" background-color:black;width: 60px; height: 25px;position: absolute;bottom: 512.5px;left: 645px;"></canvas>
-<canvas id="coolC" style=" background-color:black;width: 45px; height: 37.5px;position: absolute;bottom: 512.5px;left: 645px;"></canvas>
+<canvas class="customization"id="coolA" style=" background-color:black;width: 75px; height: 12.5px;position: absolute;bottom: 512.5px;left: 645px;"></canvas>
+<canvas class="customization"id="coolB" style=" background-color:black;width: 60px; height: 25px;position: absolute;bottom: 512.5px;left: 645px;"></canvas>
+<canvas class="customization"id="coolC" style=" background-color:black;width: 45px; height: 37.5px;position: absolute;bottom: 512.5px;left: 645px;"></canvas>
 <!--canvas for necklace -->
-<canvas id="necklaceA" style=" background-color:pink; width:15px ; height:15px; position: absolute; bottom: 475px; left: 667.5px;"></canvas>
-<canvas id="necklaceB" style=" background-color:pink; width:15px ; height:15px; position: absolute; bottom: 478px; left: 655px;"></canvas>
-<canvas id="necklaceC" style=" background-color:pink; width:15px ; height:15px; position: absolute; bottom: 478px; left: 680px;"></canvas>
-<canvas id="necklaceD" style=" background-color:pink; width:15px ; height:15px; position: absolute; bottom: 485px; left: 645px;"></canvas>
-<canvas id="necklaceE" style=" background-color:pink; width:15px ; height:15px; position: absolute; bottom: 485px; left: 690px;"></canvas>
+<canvas class="customization"id="necklaceA" style=" background-color:pink; width:15px ; height:15px; position: absolute; bottom: 475px; left: 667.5px;"></canvas>
+<canvas class="customization"id="necklaceB" style=" background-color:pink; width:15px ; height:15px; position: absolute; bottom: 478px; left: 655px;"></canvas>
+<canvas class="customization"id="necklaceC" style=" background-color:pink; width:15px ; height:15px; position: absolute; bottom: 478px; left: 680px;"></canvas>
+<canvas class="customization"id="necklaceD" style=" background-color:pink; width:15px ; height:15px; position: absolute; bottom: 485px; left: 645px;"></canvas>
+<canvas class="customization"id="necklaceE" style=" background-color:pink; width:15px ; height:15px; position: absolute; bottom: 485px; left: 690px;"></canvas>
 <!--canvas for sunglasses-->
-<canvas id="sunglassesA" style=" background-color:black;width: 17.5px; height: 17.5px;position: absolute;bottom: 477.5px;left: 657.5px;"></canvas>
-<canvas id="sunglassesB" style=" background-color:black;width: 17.5px; height: 17.5px;position: absolute;bottom: 477.5px;left: 680px;"></canvas>
-<canvas id="sunglassesC" style=" background-color:black;width: 70px; height: 10px;position: absolute;bottom: 485px;left: 640px;"></canvas>
+<canvas class="customization"id="sunglassesA" style=" background-color:black;width: 17.5px; height: 17.5px;position: absolute;bottom: 477.5px;left: 657.5px;"></canvas>
+<canvas class="customization"id="sunglassesB" style=" background-color:black;width: 17.5px; height: 17.5px;position: absolute;bottom: 477.5px;left: 680px;"></canvas>
+<canvas class="customization"id="sunglassesC" style=" background-color:black;width: 70px; height: 10px;position: absolute;bottom: 485px;left: 640px;"></canvas>
 <!--canvas for googly eyes-->
-<canvas id="googlyEyesA" style=" background-color:white;width: 20px; height: 20px;position: absolute;bottom: 480px;left: 652.5px;"></canvas>
-<canvas id="googlyEyesB" style=" background-color:white;width: 20px; height: 20px;position: absolute;bottom: 480px;left: 680px;"></canvas>
-<canvas id="googlyEyesC" style=" background-color:black;width: 15px; height: 15px;position: absolute;bottom: 480px;left: 655px;"></canvas>
-<canvas id="googlyEyesD" style=" background-color:black;width: 15px; height: 15px;position: absolute;bottom: 480px;left: 682.5px;"></canvas>
+<canvas class="customization"id="googlyEyesA" style=" background-color:white;width: 20px; height: 20px;position: absolute;bottom: 480px;left: 652.5px;"></canvas>
+<canvas class="customization"id="googlyEyesB" style=" background-color:white;width: 20px; height: 20px;position: absolute;bottom: 480px;left: 680px;"></canvas>
+<canvas class="customization"id="googlyEyesC" style=" background-color:black;width: 15px; height: 15px;position: absolute;bottom: 480px;left: 655px;"></canvas>
+<canvas class="customization"id="googlyEyesD" style=" background-color:black;width: 15px; height: 15px;position: absolute;bottom: 480px;left: 682.5px;"></canvas>
 <!--canvas for shoes-->
-<canvas id="shoesA" style=" background-color:black;width: 32.5px; height: 10px;position: absolute;bottom: 450px;left: 640px;"></canvas>
-<canvas id="shoesB" style=" background-color:black;width: 32.5px; height: 10px;position: absolute;bottom: 450px;left: 682.5px;"></canvas>
-<canvas id="shoesC" style=" background-color:black;width: 30px; height: 10px;position: absolute;bottom: 450px;left: 640px;"></canvas>
-<canvas id="shoesD" style="transform:rotate(15deg) ; background-color:black;width: 30px; height: 10px;position: absolute;bottom: 455px;left: 682.5px;"></canvas>
-<canvas id="shoesE" style="transform:rotate(165deg) ; background-color:black;width: 30px; height: 10px;position: absolute;bottom: 455px;left: 642.5px;"></canvas>
-<canvas id="shoesF" style=" background-color:white;width: 5px; height: 5px;position: absolute;bottom: 460px;left: 642.5px;"></canvas>
-<canvas id="shoesG" style=" background-color:white;width: 5px; height: 5px;position: absolute;bottom: 462.5px;left: 650px;"></canvas>
-<canvas id="shoesH" style=" background-color:white;width: 5px; height: 5px;position: absolute;bottom: 465px;left: 657.5px;"></canvas>
-<canvas id="shoesI" style=" background-color:white;width: 5px; height: 5px;position: absolute;bottom: 460px;left: 707.5px;"></canvas>
-<canvas id="shoesJ" style=" background-color:white;width: 5px; height: 5px;position: absolute;bottom: 462.5px;left: 700px;"></canvas>
-<canvas id="shoesK" style=" background-color:white;width: 5px; height: 5px;position: absolute;bottom: 465px;left: 692.5px;"></canvas>
+<canvas class="customization"id="shoesA" style=" background-color:black;width: 32.5px; height: 10px;position: absolute;bottom: 450px;left: 640px;"></canvas>
+<canvas class="customization"id="shoesB" style=" background-color:black;width: 32.5px; height: 10px;position: absolute;bottom: 450px;left: 682.5px;"></canvas>
+<canvas class="customization"id="shoesC" style=" background-color:black;width: 30px; height: 10px;position: absolute;bottom: 450px;left: 640px;"></canvas>
+<canvas class="customization"id="shoesD" style="transform:rotate(15deg) ; background-color:black;width: 30px; height: 10px;position: absolute;bottom: 455px;left: 682.5px;"></canvas>
+<canvas class="customization"id="shoesE" style="transform:rotate(165deg) ; background-color:black;width: 30px; height: 10px;position: absolute;bottom: 455px;left: 642.5px;"></canvas>
+<canvas class="customization"id="shoesF" style=" background-color:white;width: 5px; height: 5px;position: absolute;bottom: 460px;left: 642.5px;"></canvas>
+<canvas class="customization"id="shoesG" style=" background-color:white;width: 5px; height: 5px;position: absolute;bottom: 462.5px;left: 650px;"></canvas>
+<canvas class="customization"id="shoesH" style=" background-color:white;width: 5px; height: 5px;position: absolute;bottom: 465px;left: 657.5px;"></canvas>
+<canvas class="customization"id="shoesI" style=" background-color:white;width: 5px; height: 5px;position: absolute;bottom: 460px;left: 707.5px;"></canvas>
+<canvas class="customization"id="shoesJ" style=" background-color:white;width: 5px; height: 5px;position: absolute;bottom: 462.5px;left: 700px;"></canvas>
+<canvas class="customization"id="shoesK" style=" background-color:white;width: 5px; height: 5px;position: absolute;bottom: 465px;left: 692.5px;"></canvas>
 <!--canvas for rods-->
-<canvas id="rodsA" style="transform:rotate(155deg);background: linear-gradient(lightblue, purple, darkblue);width: 10px; height: 50px;position: absolute;bottom: 470px;left: 620px;"></canvas>
-<canvas id="rodsB" style="transform:rotate(25deg);background: linear-gradient(to top, lightblue, purple, darkblue);width: 10px; height: 50px;position: absolute;bottom: 470px;left: 725px;"></canvas>
+<canvas class="customization"id="rodsA" style="transform:rotate(155deg);background: linear-gradient(lightblue, purple, darkblue);width: 10px; height: 50px;position: absolute;bottom: 470px;left: 620px;"></canvas>
+<canvas class="customization"id="rodsB" style="transform:rotate(25deg);background: linear-gradient(to top, lightblue, purple, darkblue);width: 10px; height: 50px;position: absolute;bottom: 470px;left: 725px;"></canvas>
 <!--canvas for dual katanas-->
-<canvas id="katanaA" style="transform:rotate(325deg);background: linear-gradient(silver 50%, black 100%);width: 5px; height: 60px;position: absolute;bottom: 470px;left: 630px;"></canvas>
-<canvas id="katanaB" style="transform:rotate(35deg);background: linear-gradient(silver 50%, black 100%);width: 5px; height: 60px;position: absolute;bottom: 470px;left: 716.75px;"></canvas>
+<canvas class="customization"id="katanaA" style="transform:rotate(325deg);background: linear-gradient(silver 50%, black 100%);width: 5px; height: 60px;position: absolute;bottom: 470px;left: 630px;"></canvas>
+<canvas class="customization"id="katanaB" style="transform:rotate(35deg);background: linear-gradient(silver 50%, black 100%);width: 5px; height: 60px;position: absolute;bottom: 470px;left: 716.75px;"></canvas>
 <!--canvas for gojo's big black balls-->
-<canvas id="gojoA" style=" background:linear-gradient(red 50%, magenta 100%);width: 25px; height: 25px;border-radius:50%;position: absolute;bottom: 470px;left: 620px;"></canvas>
-<canvas id="gojoB" style=" background:linear-gradient(blue 50%, cyan 100%);width: 25px; height: 25px;border-radius:50%;position: absolute;bottom: 470px;left: 710px;"></canvas>
+<canvas class="customization"id="gojoA" style=" background:linear-gradient(red 50%, magenta 100%);width: 25px; height: 25px;border-radius:50%;position: absolute;bottom: 470px;left: 620px;"></canvas>
+<canvas class="customization"id="gojoB" style=" background:linear-gradient(blue 50%, cyan 100%);width: 25px; height: 25px;border-radius:50%;position: absolute;bottom: 470px;left: 710px;"></canvas>
 <!--canvas for veronica's knife (idk why she specially asked for this)-->
 <!--note:(main idea was a stick from adrian but she was first)make the knife animate to change color like crazy and make it [spin around the character like a blade of chaos and fury!! -claude haiku 4,5] and flashbang ennemies with a cooldown of 20seconds and a duration of 30 seconds. -adrian (apple dev on discord)aka シャドウX or @dragon_shad-->
-<canvas id="veronicaKnifeA" style="transform:rotate(35deg);border-radius: 75%; background-color:silver;width: 6px; height: 50px;position: absolute;bottom: 487.5px;left: 728px;"></canvas>
-<canvas id="veronicaKnifeB" style="transform:rotate(35deg); background-color:silver;width: 4px; height: 50px;position: absolute;bottom: 470px;left: 715px;"></canvas>
-<canvas id="veronicaKnifeC" style="transform:rotate(35deg); background-color:black;width: 4px; height: 50px;position: absolute;bottom: 450px;left: 700px;"></canvas>
-<canvas id="veronicaKnifeD" style=" background-color:white;width:3px; height: 3px;position: absolute;bottom: 467.5px;left: 696.25px;"></canvas>
-<canvas id="veronicaKnifeE" style=" background-color:white;width: 3px; height: 3px;position: absolute;bottom: 457.5px;left: 690px;"></canvas>
-<canvas id="veronicaKnifeF" style=" background-color:white;width: 3px; height: 3px;position: absolute;bottom: 477.5px;left: 702.5px;"></canvas>
+<canvas class="customization"id="veronicaKnifeA" style="transform:rotate(35deg);border-radius: 75%; background-color:silver;width: 6px; height: 50px;position: absolute;bottom: 487.5px;left: 728px;"></canvas>
+<canvas class="customization"id="veronicaKnifeB" style="transform:rotate(35deg); background-color:silver;width: 4px; height: 50px;position: absolute;bottom: 470px;left: 715px;"></canvas>
+<canvas class="customization"id="veronicaKnifeC" style="transform:rotate(35deg); background-color:black;width: 4px; height: 50px;position: absolute;bottom: 450px;left: 700px;"></canvas>
+<canvas class="customization"id="veronicaKnifeD" style=" background-color:white;width:3px; height: 3px;position: absolute;bottom: 467.5px;left: 696.25px;"></canvas>
+<canvas class="customization"id="veronicaKnifeE" style=" background-color:white;width: 3px; height: 3px;position: absolute;bottom: 457.5px;left: 690px;"></canvas>
+<canvas class="customization"id="veronicaKnifeF" style=" background-color:white;width: 3px; height: 3px;position: absolute;bottom: 477.5px;left: 702.5px;"></canvas>
 <!--canvas for the icons (hats)-->
 <!--canvas for tophatIcon-->
-<canvas id="tophatIconA" style=" background-color:black;width: 30px; height: 5px;position: absolute;bottom: 192.5px;left: 45px;"></canvas>
-<canvas id="tophatIconB" style=" background-color:black;width: 20px; height: 20px;position: absolute;bottom: 196.5px;left: 50px;"></canvas>
-<canvas id="tophatIconC" style=" background-color:white;width: 20px; height: 5px;position: absolute;bottom: 197.5px;left: 50px;"></canvas>
+<canvas class="customizationIcon"id="tophatIconA" style=" background-color:black;width: 30px; height: 5px;position: absolute;bottom: 192.5px;left: 45px;"></canvas>
+<canvas class="customizationIcon"id="tophatIconB" style=" background-color:black;width: 20px; height: 20px;position: absolute;bottom: 196.5px;left: 50px;"></canvas>
+<canvas class="customizationIcon"id="tophatIconC" style=" background-color:white;width: 20px; height: 5px;position: absolute;bottom: 197.5px;left: 50px;"></canvas>
 <!--canvas for capIcon-->
-<canvas id="capIconA" style=" background-color:black;width: 30px; height: 5px;position: absolute;left: 120px; bottom: 195px;"></canvas>
-<canvas id="capIconB" style=" background-color:black;width: 24px; height: 10px;position: absolute;left: 120px; bottom: 195px;"></canvas>
+<canvas class="customizationIcon"id="capIconA" style=" background-color:black;width: 30px; height: 5px;position: absolute;left: 120px; bottom: 195px;"></canvas>
+<canvas class="customizationIcon"id="capIconB" style=" background-color:black;width: 24px; height: 10px;position: absolute;left: 120px; bottom: 195px;"></canvas>
 <!-- canvas for beanieIcon-->
-<canvas id="beanieIconA" style=" background-color:black;width: 30px; height: 5px;position: absolute;bottom: 195px;left: 195px;"></canvas>
-<canvas id="beanieIconB" style=" background-color:black;width: 24px; height: 10px;position: absolute;bottom: 195px;left: 197.5px;"></canvas>
-<canvas id="beanieIconC" style=" background-color:black;width: 18px; height: 15px;position: absolute;bottom: 195px;left: 201.25px;"></canvas>
+<canvas class="customizationIcon"id="beanieIconA" style=" background-color:black;width: 30px; height: 5px;position: absolute;bottom: 195px;left: 195px;"></canvas>
+<canvas class="customizationIcon"id="beanieIconB" style=" background-color:black;width: 24px; height: 10px;position: absolute;bottom: 195px;left: 197.5px;"></canvas>
+<canvas class="customizationIcon"id="beanieIconC" style=" background-color:black;width: 18px; height: 15px;position: absolute;bottom: 195px;left: 201.25px;"></canvas>
 <!--canvas for santahatIcon-->
-<canvas id="santahatIconA" style=" background-color:red;width: 26px; height: 5px;position: absolute;bottom: 195px;left: 272.5px;"></canvas>
-<canvas id="santahatIconB" style=" background-color:red;width: 20px; height: 10px;position: absolute;bottom: 195px;left: 275px;"></canvas>
-<canvas id="santahatIconC" style=" background-color:red;width: 14px; height: 15px;position: absolute;bottom: 195px;left: 278.25px;"></canvas>
-<canvas id="santahatIconD" style=" background-color:red;width: 10px; height: 20px;position: absolute;bottom: 195px;left: 282.5px;"></canvas>
-<canvas id="santahatIconE" style=" background-color:red;width: 6px; height: 6px;position: absolute;bottom: 211px;left: 292.5px;"></canvas>
-<canvas id="santahatIconF" style=" background-color:white;width: 6px; height: 6px;position: absolute;bottom: 209px;left: 295px"></canvas>
+<canvas class="customizationIcon"id="santahatIconA" style=" background-color:red;width: 26px; height: 5px;position: absolute;bottom: 195px;left: 272.5px;"></canvas>
+<canvas class="customizationIcon"id="santahatIconB" style=" background-color:red;width: 20px; height: 10px;position: absolute;bottom: 195px;left: 275px;"></canvas>
+<canvas class="customizationIcon"id="santahatIconC" style=" background-color:red;width: 14px; height: 15px;position: absolute;bottom: 195px;left: 278.25px;"></canvas>
+<canvas class="customizationIcon"id="santahatIconD" style=" background-color:red;width: 10px; height: 20px;position: absolute;bottom: 195px;left: 282.5px;"></canvas>
+<canvas class="customizationIcon"id="santahatIconE" style=" background-color:red;width: 6px; height: 6px;position: absolute;bottom: 211px;left: 292.5px;"></canvas>
+<canvas class="customizationIcon"id="santahatIconF" style=" background-color:white;width: 6px; height: 6px;position: absolute;bottom: 209px;left: 295px"></canvas>
 <!-- canvas for propeller hat Icon-->
-<canvas id="propellerIconA" style=" background-color:orange;width: 30px; height: 5px;position: absolute;left: 345px; bottom: 195px;"></canvas>
-<canvas id="propellerIconB" style=" background-color:orangered;width: 24px; height: 10px;position: absolute;left: 345px; bottom: 195px;"></canvas>
-<canvas id="propellerIconC" style=" border-width: 2px; border-color: black;background-color:white;width: 2px ; height: 10px;position: absolute;left: 355px; bottom: 195px;"></canvas>
-<canvas id="propellerIconD" style=" border-width: 2px; border-color: black; background-color:white;width: 10px ; height: 2px;position: absolute;left: 351.25px; bottom: 200px;"></canvas>
+<canvas class="customizationIcon"id="propellerIconA" style=" background-color:orange;width: 30px; height: 5px;position: absolute;left: 345px; bottom: 195px;"></canvas>
+<canvas class="customizationIcon"id="propellerIconB" style=" background-color:orangered;width: 24px; height: 10px;position: absolute;left: 345px; bottom: 195px;"></canvas>
+<canvas class="customizationIcon"id="propellerIconC" style=" border-width: 2px; border-color: black;background-color:white;width: 2px ; height: 10px;position: absolute;left: 355px; bottom: 195px;"></canvas>
+<canvas class="customizationIcon"id="propellerIconD" style=" border-width: 2px; border-color: black; background-color:white;width: 10px ; height: 2px;position: absolute;left: 351.25px; bottom: 200px;"></canvas>
 <!--canvas for izan hat Icon-->
-<canvas id="izanIconA" style="background-color: rgb(255, 194, 114); width: 24px; height: 10px;position: absolute;bottom: 195px;left: 422.5px;"></canvas>
-<canvas id="izanIconB" style="background-color: rgb(255, 194, 114); width: 20px; height: 10px;position: absolute;bottom: 200px;left: 425px;"></canvas>
-<canvas id="izanIconC" style="background-color: rgb(247, 0, 185); width: 24px; height: 2px;position: absolute;bottom: 197.5px;left: 422.5px;"></canvas>
-<canvas id="izanIconD" style="background-color: rgb(247, 0, 185); width: 2px; height: 6px;position: absolute;bottom: 195.5px;left: 442.5px;"></canvas>
+<canvas class="customizationIcon"id="izanIconA" style="background-color: rgb(255, 194, 114); width: 24px; height: 10px;position: absolute;bottom: 195px;left: 422.5px;"></canvas>
+<canvas class="customizationIcon"id="izanIconB" style="background-color: rgb(255, 194, 114); width: 20px; height: 10px;position: absolute;bottom: 200px;left: 425px;"></canvas>
+<canvas class="customizationIcon"id="izanIconC" style="background-color: rgb(247, 0, 185); width: 24px; height: 2px;position: absolute;bottom: 197.5px;left: 422.5px;"></canvas>
+<canvas class="customizationIcon"id="izanIconD" style="background-color: rgb(247, 0, 185); width: 2px; height: 6px;position: absolute;bottom: 195.5px;left: 442.5px;"></canvas>
 <!--canvas for medieval helmet Icon-->
-<canvas id="helmetIconA" style=" background-color:red;width: 6px; height: 16px;position: absolute;bottom: 207.5px;left: 507px;" ></canvas>
-<canvas id="helmetIconB" style=" background-color:black;width: 24px; height: 5px;position: absolute;bottom: 205px;left: 497.5px;" ></canvas>
-<canvas id="helmetIconC" style=" background-color:black;width: 12.5px; height: 20px;position: absolute;bottom: 180px;left: 493px;" ></canvas>
-<canvas id="helmetIconD" style=" background-color:black;width: 12.5px; height: 20px;position: absolute;bottom: 180px;left: 513.75px;" ></canvas>
-<canvas id="helmetIconE" style=" background-color:black;width: 6px; height: 25px;position: absolute;bottom: 185px;left: 492.5px;" ></canvas>
-<canvas id="helmetIconF" style=" background-color:black;width: 6px; height: 25px;position: absolute;bottom: 185px;left: 520px;" ></canvas>
+<canvas class="customizationIcon"id="helmetIconA" style=" background-color:red;width: 6px; height: 16px;position: absolute;bottom: 207.5px;left: 507px;" ></canvas>
+<canvas class="customizationIcon"id="helmetIconB" style=" background-color:black;width: 24px; height: 5px;position: absolute;bottom: 205px;left: 497.5px;" ></canvas>
+<canvas class="customizationIcon"id="helmetIconC" style=" background-color:black;width: 12.5px; height: 20px;position: absolute;bottom: 180px;left: 493px;" ></canvas>
+<canvas class="customizationIcon"id="helmetIconD" style=" background-color:black;width: 12.5px; height: 20px;position: absolute;bottom: 180px;left: 513.75px;" ></canvas>
+<canvas class="customizationIcon"id="helmetIconE" style=" background-color:black;width: 6px; height: 25px;position: absolute;bottom: 185px;left: 492.5px;" ></canvas>
+<canvas class="customizationIcon"id="helmetIconF" style=" background-color:black;width: 6px; height: 25px;position: absolute;bottom: 185px;left: 520px;" ></canvas>
 <!--canvas for strawhatIcon-->
-<canvas id="strawhatIconA" style=" background-color:rgb(255, 194, 114);width: 30px; height: 5px;position: absolute;bottom: 192.5px;left: 571px;"></canvas>
-<canvas id="strawhatIconB" style=" background-color:rgb(255, 194, 114);width: 24px; height: 10px;position: absolute;bottom: 192.5px;left: 573.5px;"></canvas>
-<canvas id="strawhatIconC" style=" background-color:rgb(255, 194, 114);width: 18px; height: 15px;position: absolute;bottom: 192.5px;left: 577.25px;"></canvas>
-<canvas id="strawhatIconD" style=" background-color:red;width: 30px; height: 2px;position: absolute;bottom: 193px;left: 571px;"></canvas>
+<canvas class="customizationIcon"id="strawhatIconA" style=" background-color:rgb(255, 194, 114);width: 30px; height: 5px;position: absolute;bottom: 192.5px;left: 571px;"></canvas>
+<canvas class="customizationIcon"id="strawhatIconB" style=" background-color:rgb(255, 194, 114);width: 24px; height: 10px;position: absolute;bottom: 192.5px;left: 573.5px;"></canvas>
+<canvas class="customizationIcon"id="strawhatIconC" style=" background-color:rgb(255, 194, 114);width: 18px; height: 15px;position: absolute;bottom: 192.5px;left: 577.25px;"></canvas>
+<canvas class="customizationIcon"id="strawhatIconD" style=" background-color:red;width: 30px; height: 2px;position: absolute;bottom: 193px;left: 571px;"></canvas>
 <!--canvas for chopper hat Icon-->
-<canvas id="choppyIconA" style=" background-color:rgb(255, 34, 82);width: 20px; height: 20px;position: absolute;left: 50px; bottom: 115px;"></canvas>
-<canvas id="choppyIconB" style=" background-color:rgb(255, 34, 82);width: 30px; height: 5px;position: absolute;left: 45px; bottom: 115px;"></canvas>
-<canvas id="choppyIconC" style="transform: rotate(45deg);background-color:white;width: 2px ; height: 10px;position: absolute;left: 60px; bottom: 117.5px;"></canvas>
-<canvas id="choppyIconD" style="transform: rotate(135deg);background-color:white;width: 2px ; height: 10px;position: absolute;left: 60px; bottom: 117.5px;"></canvas>
+<canvas class="customizationIcon"id="choppyIconA" style=" background-color:rgb(255, 34, 82);width: 20px; height: 20px;position: absolute;left: 50px; bottom: 115px;"></canvas>
+<canvas class="customizationIcon"id="choppyIconB" style=" background-color:rgb(255, 34, 82);width: 30px; height: 5px;position: absolute;left: 45px; bottom: 115px;"></canvas>
+<canvas class="customizationIcon"id="choppyIconC" style="transform: rotate(45deg);background-color:white;width: 2px ; height: 10px;position: absolute;left: 60px; bottom: 117.5px;"></canvas>
+<canvas class="customizationIcon"id="choppyIconD" style="transform: rotate(135deg);background-color:white;width: 2px ; height: 10px;position: absolute;left: 60px; bottom: 117.5px;"></canvas>
 <!--canvas for the icons (accessory)-->
 <!-- canvas for coolIcon-->
-<canvas id="coolIconA" style=" background-color:black;width: 30px; height: 5px;position: absolute;bottom: 195px;left: 45px;"></canvas>
-<canvas id="coolIconB" style=" background-color:black;width: 24px; height: 10px;position: absolute;bottom: 195px;left: 45px;"></canvas>
-<canvas id="coolIconC" style=" background-color:black;width: 18px; height: 15px;position: absolute;bottom: 195px;left: 45px;"></canvas>
+<canvas class="customizationIcon"id="coolIconA" style=" background-color:black;width: 30px; height: 5px;position: absolute;bottom: 195px;left: 45px;"></canvas>
+<canvas class="customizationIcon"id="coolIconB" style=" background-color:black;width: 24px; height: 10px;position: absolute;bottom: 195px;left: 45px;"></canvas>
+<canvas class="customizationIcon"id="coolIconC" style=" background-color:black;width: 18px; height: 15px;position: absolute;bottom: 195px;left: 45px;"></canvas>
 <!--canvas for necklaceIcon -->
-<canvas id="necklaceIconA" style=" background-color:pink; width:6px ; height:6px; position: absolute; bottom: 197.5px; left: 121.75px;"></canvas>
-<canvas id="necklaceIconB" style=" background-color:pink; width:6px ; height:6px; position: absolute; bottom: 195px; left: 126.75px;"></canvas>
-<canvas id="necklaceIconC" style=" background-color:pink; width:6px ; height:6px; position: absolute; bottom: 193.25px; left: 131.75px;"></canvas>
-<canvas id="necklaceIconD" style=" background-color:pink; width:6px ; height:6px; position: absolute; bottom: 195px; left: 136.75px;"></canvas>
-<canvas id="necklaceIconE" style=" background-color:pink; width:6px ; height:6px; position: absolute; bottom: 197.5px; left: 141.75px;"></canvas>
+<canvas class="customizationIcon"id="necklaceIconA" style=" background-color:pink; width:6px ; height:6px; position: absolute; bottom: 197.5px; left: 121.75px;"></canvas>
+<canvas class="customizationIcon"id="necklaceIconB" style=" background-color:pink; width:6px ; height:6px; position: absolute; bottom: 195px; left: 126.75px;"></canvas>
+<canvas class="customizationIcon"id="necklaceIconC" style=" background-color:pink; width:6px ; height:6px; position: absolute; bottom: 193.25px; left: 131.75px;"></canvas>
+<canvas class="customizationIcon"id="necklaceIconD" style=" background-color:pink; width:6px ; height:6px; position: absolute; bottom: 195px; left: 136.75px;"></canvas>
+<canvas class="customizationIcon"id="necklaceIconE" style=" background-color:pink; width:6px ; height:6px; position: absolute; bottom: 197.5px; left: 141.75px;"></canvas>
 <!--canvas for sunglassesIcon-->
-<canvas id="sunglassesIconA" style=" background-color:black;width: 7px; height: 7px;position: absolute;bottom: 195px;left: 200px;"></canvas>
-<canvas id="sunglassesIconB" style=" background-color:black;width: 7px; height: 7px;position: absolute;bottom: 195px;left: 212.5px;"></canvas>
-<canvas id="sunglassesIconC" style=" background-color:black;width: 28px; height: 4px;position: absolute;bottom: 200px;left: 195px;"></canvas>
+<canvas class="customizationIcon"id="sunglassesIconA" style=" background-color:black;width: 7px; height: 7px;position: absolute;bottom: 195px;left: 200px;"></canvas>
+<canvas class="customizationIcon"id="sunglassesIconB" style=" background-color:black;width: 7px; height: 7px;position: absolute;bottom: 195px;left: 212.5px;"></canvas>
+<canvas class="customizationIcon"id="sunglassesIconC" style=" background-color:black;width: 28px; height: 4px;position: absolute;bottom: 200px;left: 195px;"></canvas>
 <!--canvas for googly eyes Icon-->
-<canvas id="googlyEyesIconA" style=" background-color:white;width: 8px; height: 8px;position: absolute;left: 272.5px; bottom: 195px;"></canvas>
-<canvas id="googlyEyesIconB" style=" background-color:white;width: 8px; height: 8px;position: absolute;left: 287.5px; bottom: 195px;"></canvas>
-<canvas id="googlyEyesIconC" style=" background-color:black;width: 6px; height: 6px;position: absolute;left: 274px; bottom: 195px;"></canvas>
-<canvas id="googlyEyesIconD" style=" background-color:black;width: 6px; height: 6px;position: absolute;left: 288.5px; bottom: 195px;"></canvas>
+<canvas class="customizationIcon"id="googlyEyesIconA" style=" background-color:white;width: 8px; height: 8px;position: absolute;left: 272.5px; bottom: 195px;"></canvas>
+<canvas class="customizationIcon"id="googlyEyesIconB" style=" background-color:white;width: 8px; height: 8px;position: absolute;left: 287.5px; bottom: 195px;"></canvas>
+<canvas class="customizationIcon"id="googlyEyesIconC" style=" background-color:black;width: 6px; height: 6px;position: absolute;left: 274px; bottom: 195px;"></canvas>
+<canvas class="customizationIcon"id="googlyEyesIconD" style=" background-color:black;width: 6px; height: 6px;position: absolute;left: 288.5px; bottom: 195px;"></canvas>
 <!--canvas for shoesIcon-->
-<canvas id="shoesIconA" style=" background-color:black;width: 13px; height: 4px;position: absolute;left: 345px; bottom: 195px;"></canvas>
-<canvas id="shoesIconB" style=" background-color:black;width: 13px; height: 4px;position: absolute;left: 365px; bottom: 195px;"></canvas>
-<canvas id="shoesIconC" style=" background-color:black;width: 12px; height: 4px;position: absolute;left: 345px; bottom: 195px;"></canvas>
-<canvas id="shoesIconD" style="transform:rotate(15deg) ; background-color:black;width: 12px; height: 4px;position: absolute;left: 365px; bottom: 196.25px;"></canvas>
-<canvas id="shoesIconE" style="transform:rotate(165deg) ; background-color:black;width: 12px; height: 4px;position: absolute;left: 346.25px; bottom: 196.25px;"></canvas>
-<canvas id="shoesIconF" style=" background-color:white;width: 2px; height: 2px;position: absolute;left: 345px; bottom: 198.75px;"></canvas>
-<canvas id="shoesIconG" style=" background-color:white;width: 2px; height: 2px;position: absolute;left: 347.5px; bottom: 200px;"></canvas>
-<canvas id="shoesIconH" style=" background-color:white;width: 2px; height: 2px;position: absolute;left: 351.25px; bottom: 201.25px;"></canvas>
-<canvas id="shoesIconI" style=" background-color:white;width: 2px; height: 2px;position: absolute;bottom: 198.75px;left: 375px;"></canvas>
-<canvas id="shoesIconJ" style=" background-color:white;width: 2px; height: 2px;position: absolute;bottom: 200px;left: 371.25px;"></canvas>
-<canvas id="shoesIconK" style=" background-color:white;width: 2px; height: 2px;position: absolute;bottom: 201.25px;left: 367.5px;"></canvas>
+<canvas class="customizationIcon"id="shoesIconA" style=" background-color:black;width: 13px; height: 4px;position: absolute;left: 345px; bottom: 195px;"></canvas>
+<canvas class="customizationIcon"id="shoesIconB" style=" background-color:black;width: 13px; height: 4px;position: absolute;left: 365px; bottom: 195px;"></canvas>
+<canvas class="customizationIcon"id="shoesIconC" style=" background-color:black;width: 12px; height: 4px;position: absolute;left: 345px; bottom: 195px;"></canvas>
+<canvas class="customizationIcon"id="shoesIconD" style="transform:rotate(15deg) ; background-color:black;width: 12px; height: 4px;position: absolute;left: 365px; bottom: 196.25px;"></canvas>
+<canvas class="customizationIcon"id="shoesIconE" style="transform:rotate(165deg) ; background-color:black;width: 12px; height: 4px;position: absolute;left: 346.25px; bottom: 196.25px;"></canvas>
+<canvas class="customizationIcon"id="shoesIconF" style=" background-color:white;width: 2px; height: 2px;position: absolute;left: 345px; bottom: 198.75px;"></canvas>
+<canvas class="customizationIcon"id="shoesIconG" style=" background-color:white;width: 2px; height: 2px;position: absolute;left: 347.5px; bottom: 200px;"></canvas>
+<canvas class="customizationIcon"id="shoesIconH" style=" background-color:white;width: 2px; height: 2px;position: absolute;left: 351.25px; bottom: 201.25px;"></canvas>
+<canvas class="customizationIcon"id="shoesIconI" style=" background-color:white;width: 2px; height: 2px;position: absolute;bottom: 198.75px;left: 375px;"></canvas>
+<canvas class="customizationIcon"id="shoesIconJ" style=" background-color:white;width: 2px; height: 2px;position: absolute;bottom: 200px;left: 371.25px;"></canvas>
+<canvas class="customizationIcon"id="shoesIconK" style=" background-color:white;width: 2px; height: 2px;position: absolute;bottom: 201.25px;left: 367.5px;"></canvas>
 <!--canvas for rodsIcon-->
-<canvas id="rodsIconA" style="transform:rotate(155deg);background: linear-gradient(lightblue, purple, darkblue);width: 4px; height: 20px;position: absolute;left: 420px; bottom: 190px;"></canvas>
-<canvas id="rodsIconB" style="transform:rotate(25deg);background: linear-gradient(to top, lightblue, purple, darkblue);width: 4px; height: 20px;position: absolute;left: 445px; bottom: 190px;"></canvas>
+<canvas class="customizationIcon"id="rodsIconA" style="transform:rotate(155deg);background: linear-gradient(lightblue, purple, darkblue);width: 4px; height: 20px;position: absolute;left: 420px; bottom: 190px;"></canvas>
+<canvas class="customizationIcon"id="rodsIconB" style="transform:rotate(25deg);background: linear-gradient(to top, lightblue, purple, darkblue);width: 4px; height: 20px;position: absolute;left: 445px; bottom: 190px;"></canvas>
 <!--canvas for dual katanas Icon-->
-<canvas id="katanaIconA" style="transform:rotate(325deg);background: linear-gradient(silver 50%, black 100%);width: 2px; height: 24px;position: absolute;left: 496.75px; bottom: 190px;"></canvas>
-<canvas id="katanaIconB" style="transform:rotate(35deg);background: linear-gradient(silver 50%, black 100%);width: 2px; height: 24px;position: absolute;left: 521.25px; bottom: 190px;"></canvas>
+<canvas class="customizationIcon"id="katanaIconA" style="transform:rotate(325deg);background: linear-gradient(silver 50%, black 100%);width: 2px; height: 24px;position: absolute;left: 496.75px; bottom: 190px;"></canvas>
+<canvas class="customizationIcon"id="katanaIconB" style="transform:rotate(35deg);background: linear-gradient(silver 50%, black 100%);width: 2px; height: 24px;position: absolute;left: 521.25px; bottom: 190px;"></canvas>
 <!--canvas for gojo's big black balls Icon-->
-<canvas id="gojoIconA" style=" background:linear-gradient(red 50%, magenta 100%);width: 10px; height: 10px;border-radius:50%;position: absolute;left: 567.5px; bottom: 195px;"></canvas>
-<canvas id="gojoIconB" style=" background:linear-gradient(blue 50%, cyan 100%);width: 10px; height: 10px;border-radius:50%;position: absolute;left: 592.5px; bottom: 195px;"></canvas>
+<canvas class="customizationIcon"id="gojoIconA" style=" background:linear-gradient(red 50%, magenta 100%);width: 10px; height: 10px;border-radius:50%;position: absolute;left: 567.5px; bottom: 195px;"></canvas>
+<canvas class="customizationIcon"id="gojoIconB" style=" background:linear-gradient(blue 50%, cyan 100%);width: 10px; height: 10px;border-radius:50%;position: absolute;left: 592.5px; bottom: 195px;"></canvas>
 <!--canvas for veronica's knife Icon-->
-<canvas id="veronicaKnifeIconA" style="transform:rotate(35deg);border-radius: 75%; background-color:silver;width: 6px; height: 20px;position: absolute;bottom: 122.5px;left: 62.5px;"></canvas>
-<canvas id="veronicaKnifeIconB" style="transform:rotate(35deg); background-color:silver;width: 4px; height: 20px;position: absolute;bottom: 122.5px;left: 62.5px;"></canvas>
-<canvas id="veronicaKnifeIconC" style="transform:rotate(35deg); background-color:black;width: 4px; height: 20px;position: absolute;bottom: 107.5px;left: 52.5px;"></canvas>
-<canvas id="veronicaKnifeIconD" style=" background-color:white;width: 2px; height: 2px;position: absolute;bottom: 112.5px;left: 50px;"></canvas>
-<canvas id="veronicaKnifeIconE" style=" background-color:white;width: 2px; height: 2px;position: absolute;bottom: 117.5px;left: 53.75px;"></canvas>
-<canvas id="veronicaKnifeIconF" style=" background-color:white;width: 2px; height: 2px;position: absolute;bottom: 122.5px;left: 57.5px;"></canvas>
+<canvas class="customizationIcon"id="veronicaKnifeIconA" style="transform:rotate(35deg);border-radius: 75%; background-color:silver;width: 6px; height: 20px;position: absolute;bottom: 122.5px;left: 62.5px;"></canvas>
+<canvas class="customizationIcon"id="veronicaKnifeIconB" style="transform:rotate(35deg); background-color:silver;width: 4px; height: 20px;position: absolute;bottom: 122.5px;left: 62.5px;"></canvas>
+<canvas class="customizationIcon"id="veronicaKnifeIconC" style="transform:rotate(35deg); background-color:black;width: 4px; height: 20px;position: absolute;bottom: 107.5px;left: 52.5px;"></canvas>
+<canvas class="customizationIcon"id="veronicaKnifeIconD" style=" background-color:white;width: 2px; height: 2px;position: absolute;bottom: 112.5px;left: 50px;"></canvas>
+<canvas class="customizationIcon"id="veronicaKnifeIconE" style=" background-color:white;width: 2px; height: 2px;position: absolute;bottom: 117.5px;left: 53.75px;"></canvas>
+<canvas class="customizationIcon"id="veronicaKnifeIconF" style=" background-color:white;width: 2px; height: 2px;position: absolute;bottom: 122.5px;left: 57.5px;"></canvas>
 <script>
 // Save data
 localStorage.setItem("key", "value");
@@ -985,4 +1043,3 @@ if (!localStorage.getItem(key)) {
 </script>
 </body>
 </html>
-
