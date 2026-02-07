@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEST GAME</title>
+</head>
+<body>
+    <!-- Babylon.js Canvas -->
+    <canvas id="renderCanvas"></canvas>
+
+    <!-- Babylon.js CDN -->
+    <script src="https://cdn.babylonjs.com/babylon.js"></script>
+
+    <script>
+//massive thanks to [discord] @dev.math, @dragon_shad [github] @0xShadowHex (@dragon_shad) and whoever made the game controls lol
+
+export const createScene = function () {
+    var scene = new BABYLON.Scene(engine);
+    var camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(0, 5, -10), scene);
+    camera.setTarget(BABYLON.Vector3.Zero());
+    camera.attachControl(canvas, true);
+
+    var light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
+    light.intensity = 0.7;
+
+    const hk = new BABYLON.HavokPlugin(false);
+    scene.enablePhysics(new BABYLON.Vector3(0, -9.8, 0), hk);
+
+    var skybox = BABYLON.MeshBuilder.CreateBox("skyBox", { size: 1000.0 }, scene);
+    var skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
+    skyboxMaterial.backFaceCulling = false;
+    skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("textures/skybox", scene);
+    skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
+    skyboxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
+    skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
+    skybox.material = skyboxMaterial;
+
+    // GUI
+    const advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
+
+    const newcubebutton = BABYLON.GUI.Button.CreateSimpleButton("btn", "Create Cube");
+    newcubebutton.width = "150px";
+    newcubebutton.height = "40px";
+    newcubebutton.color = "white";
+    newcubebutton.cornerRadius = 10;
+    newcubebutton.top = "-40px";
+    newcubebutton.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM;
+
+    advancedTexture.addControl(newcubebutton);
+
+    // Cube counter for positioning
+    let cubeCount = 0;
+
+    // Button click event
+    newcubebutton.onPointerUpObservable.add(() => {
+        const cube = BABYLON.MeshBuilder.CreateBox("cube" + cubeCount, { size: 1 }, scene);
+        cube.position = new BABYLON.Vector3(cubeCount * 0, 0, 0);
+        cube.material = new BABYLON.StandardMaterial("mat" + cubeCount, scene);
+        var groundAggregate = new BABYLON.PhysicsAggregate(cube, BABYLON.PhysicsShapeType.BOX, { mass: 1, restitution: 0.5, friction: 0.5 }, scene);
+        cube.material.diffuseColor = new BABYLON.Color3(Math.random(), Math.random(), Math.random());
+        cubeCount++;
+    });
+
+    const button1 = BABYLON.GUI.Button.CreateSimpleButton("btn1", "Create Ball");
+    button1.width = "150px";
+    button1.height = "40px";
+    button1.color = "white";
+    button1.cornerRadius = 10;
+    button1.top = "-40px";
+    button1.left = "160px";
+    button1.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM;
+
+    advancedTexture.addControl(button1);
+
+    let ballCount = 0;
+
+    button1.onPointerUpObservable.add(() => {
+        const ball = BABYLON.MeshBuilder.CreateSphere("ball" + ballCount, { diamter: 2, segments: 32 }, scene);
+        ball.position = new BABYLON.Vector3(ballCount * 0, 0, 0);
+        ball.material = new BABYLON.StandardMaterial("mat" + ballCount, scene);
+        var groundAggregate = new BABYLON.PhysicsAggregate(ball, BABYLON.PhysicsShapeType.SPHERE, { mass: 1, restitution: 0.5, friction: 0.5 }, scene);
+        ball.material.diffuseColor = new BABYLON.Color3(Math.random(), Math.random(), Math.random());
+        ballCount++;
+    });
+
+    const newrectanglebutton1 = BABYLON.GUI.Button.CreateSimpleButton("btn2", "Create Rectangle [horizontal]");
+    newrectanglebutton1.width = "175px";
+    newrectanglebutton1.height = "40px";
+    newrectanglebutton1.color = "white";
+    newrectanglebutton1.cornerRadius = 10;
+    newrectanglebutton1.top = "-40px";
+    newrectanglebutton1.left = "-175px";
+    newrectanglebutton1.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM;
+
+    advancedTexture.addControl(newrectanglebutton1);
+
+    let rectangleCount = 0;
+
+    newrectanglebutton1.onPointerUpObservable.add(() => {
+        const rectangle = BABYLON.MeshBuilder.CreateBox("rectangle" + rectangleCount, { width: 0.25, height: 2 }, scene);
+        rectangle.position = new BABYLON.Vector3(rectangleCount * 0, 2, 0);
+        rectangle.material = new BABYLON.StandardMaterial("mat" + rectangleCount, scene);
+        var groundAggregate = new BABYLON.PhysicsAggregate(rectangle, BABYLON.PhysicsShapeType.BOX, { mass: 1, restitution: 0.5, friction: 0.5 }, scene);
+        rectangle.material.diffuseColor = new BABYLON.Color3(Math.random(), Math.random(), Math.random());
+        rectangleCount++;
+    });
+    const newrectanglebutton2 = BABYLON.GUI.Button.CreateSimpleButton("btn4", "Create Rectangle [vertical]");
+    newrectanglebutton2.width = "175px";
+    newrectanglebutton2.height = "40px";
+    newrectanglebutton2.color = "white";
+    newrectanglebutton2.cornerRadius = 10;
+    newrectanglebutton2.top = "-40px";
+    newrectanglebutton2.left = "-360px";
+    newrectanglebutton2.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM;
+
+    advancedTexture.addControl(newrectanglebutton2);
+
+    let rectangle1Count = 0;
+
+    newrectanglebutton2.onPointerUpObservable.add(() => {
+        const rectangle1 = BABYLON.MeshBuilder.CreateBox("rectangle1" + rectangle1Count, { width: 2, height: 0.25 }, scene);
+        rectangle1.position = new BABYLON.Vector3(rectangle1Count * 0, 2, 0);
+        rectangle1.material = new BABYLON.StandardMaterial("mat" + rectangle1Count, scene);
+        var groundAggregate = new BABYLON.PhysicsAggregate(rectangle1, BABYLON.PhysicsShapeType.BOX, { mass: 1, restitution: 0.5, friction: 0.5 }, scene);
+        rectangle1.material.diffuseColor = new BABYLON.Color3(Math.random(), Math.random(), Math.random());
+        rectangle1Count++;
+    });
+
+    const reset = BABYLON.GUI.Button.CreateSimpleButton("btn5", " Reset");
+    reset.width = "175px";
+    reset.height = "40px";
+    reset.color = "white";
+    reset.cornerRadius = 10;
+    reset.top = "-40px";
+    reset.left = "335px";
+    reset.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM;
+
+    advancedTexture.addControl(reset);
+
+    reset.onPointerUpObservable.add(() => {
+        scene.meshes.forEach(mesh => mesh.dispose());
+    });
+
+    const chaos = BABYLON.GUI.Button.CreateSimpleButton("btn6", "Chaos");
+    chaos.width = "175px";
+    chaos.height = "40px";
+    chaos.color = "white";
+    chaos.cornerRadius = 10;
+    chaos.top = "-40px";
+    chaos.left = "-550px";
+    chaos.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM;
+
+    advancedTexture.addControl(chaos);
+
+    let chaosCount = 0
+
+    chaos.onPointerUpObservable.add(() => {
+        let chaos = BABYLON.MeshBuilder.CreateBox("chaos" + chaosCount, { size: 1 }, scene);
+        chaos.position = new BABYLON.Vector3(chaosCount * 0, 0, 0);
+        chaos.material = new BABYLON.StandardMaterial("mat" + chaosCount, scene);
+        var groundAggregate = new BABYLON.PhysicsAggregate(chaos, BABYLON.PhysicsShapeType.BOX, { mass: 1, restitution: 0.5, friction: 0.5 }, scene);
+        chaos.material.diffuseColor = new BABYLON.Color3(Math.random(), Math.random(), Math.random());
+
+        let chaos1 = BABYLON.MeshBuilder.CreateSphere("chaos1" + chaosCount, { diamter: 2, segments: 32 }, scene);
+        chaos1.position = new BABYLON.Vector3(chaosCount * 0, 0, 0);
+        chaos1.material = new BABYLON.StandardMaterial("mat" + chaosCount, scene);
+        var groundAggregate = new BABYLON.PhysicsAggregate(chaos1, BABYLON.PhysicsShapeType.BOX, { mass: 1, restitution: 0.5, friction: 0.5 }, scene);
+        chaos1.material.diffuseColor = new BABYLON.Color3(Math.random(), Math.random(), Math.random());
+
+        let chaos2 = BABYLON.MeshBuilder.CreateBox("chaos2" + chaosCount, { width: 0.25, height: 2 }, scene);
+        chaos2.position = new BABYLON.Vector3(chaosCount * 0, 2, 0);
+        chaos2.material = new BABYLON.StandardMaterial("mat" + chaosCount, scene);
+        var groundAggregate = new BABYLON.PhysicsAggregate(chaos2, BABYLON.PhysicsShapeType.BOX, { mass: 1, restitution: 0.5, friction: 0.5 }, scene);
+        chaos2.material.diffuseColor = new BABYLON.Color3(Math.random(), Math.random(), Math.random());
+
+        let chaos3 = BABYLON.MeshBuilder.CreateBox("chaos3" + chaosCount, { width: 2, height: 0.25 }, scene);
+        chaos3.position = new BABYLON.Vector3(chaosCount * 0, 2, 0);
+        chaos3.material = new BABYLON.StandardMaterial("mat" + chaosCount, scene);
+        var groundAggregate = new BABYLON.PhysicsAggregate(chaos3, BABYLON.PhysicsShapeType.BOX, { mass: 1, restitution: 0.5, friction: 0.5 }, scene);
+        chaos3.material.diffuseColor = new BABYLON.Color3(Math.random(), Math.random(), Math.random());
+
+        chaosCount++;
+    });
+
+    var ground = BABYLON.MeshBuilder.CreateGround("ground", { width: 1024, height: 1024 }, scene);
+    var groundAggregate = new BABYLON.PhysicsAggregate(ground, BABYLON.PhysicsShapeType.BOX, { mass: 0, restitution: 0.2, friction: 0.8 }, scene);
+    var groundMaterial = new BABYLON.StandardMaterial("groundMat", scene);
+    groundMaterial.diffuseColor = new BABYLON.Color3(0, 0.5, 0);
+    ground.material = groundMaterial;
+
+    var testBox = BABYLON.MeshBuilder.CreateBox("testBox", { size: 2 }, scene);
+    testBox.position = new BABYLON.Vector3(5, 10, 0);
+    var boxAggregate = new BABYLON.PhysicsAggregate(testBox, BABYLON.PhysicsShapeType.BOX, { mass: 1, restitution: 0.5, friction: 0.5 }, scene);
+    var boxMaterial = new BABYLON.StandardMaterial("boxMat", scene);
+    boxMaterial.diffuseColor = new BABYLON.Color3(1, 0, 0);
+    testBox.material = boxMaterial;
+
+    var state = "IN_AIR";
+    var inAirSpeed = 8.0;
+    var onGroundSpeed = 10.0;
+    var jumpHeight = 3.5;
+    var wantJump = false;
+    var inputDirection = new BABYLON.Vector3(0, 0, 0);
+    var forwardLocalSpace = new BABYLON.Vector3(0, 0, 1);
+    let characterOrientation = BABYLON.Quaternion.Identity();
+    let characterGravity = new BABYLON.Vector3(0, -18, 0);
+
+    let h = 1;
+    let w = 0.5;
+    let displayTorso = BABYLON.MeshBuilder.CreateBox("CharacterDisplay", { height: h, width: w }, scene);
+    var charMaterial = new BABYLON.StandardMaterial("charMat", scene);
+    charMaterial.diffuseColor = new BABYLON.Color3(1, 0, 0);
+    displayTorso.material = charMaterial;
+
+    let characterPosition = new BABYLON.Vector3(3., 2, -7.);
+    let characterController = new BABYLON.PhysicsCharacterController(characterPosition, { boxHeight: h, boxWidth: w }, scene);
+
+    camera.setTarget(characterPosition);
+
+    let h1 = 1;
+    let w1 = 0.5;
+    let d = 0.5
+    let displayleg = BABYLON.MeshBuilder.CreateBox("CharacterDisplay1", { height: h1, width: w1, depth: d }, scene);
+    var charMaterial1 = new BABYLON.StandardMaterial("charMat1", scene);
+    charMaterial1.diffuseColor = new BABYLON.Color3(0, 0, 1);
+    displayleg.material = charMaterial1;
+    displayleg.position = new BABYLON.Vector3(3, 1, -7.25);
+    var displaylegAggregate = new BABYLON.PhysicsAggregate(displayleg, BABYLON.PhysicsShapeType.BOX, { mass: 9999999999999, restitution: 0, friction: 1 }, scene);
+
+    let h2 = 1;
+    let w2 = 0.5;
+    let d1 = 0.5
+    let displayleg1 = BABYLON.MeshBuilder.CreateBox("CharacterDisplay2", { height: h2, width: w2, depth: d1 }, scene);
+    var charMaterial2 = new BABYLON.StandardMaterial("charMat2", scene);
+    charMaterial2.diffuseColor = new BABYLON.Color3(0, 0, 1);
+    displayleg1.material = charMaterial2;
+    displayleg1.position = new BABYLON.Vector3(3, 1, -6.75);
+    var displayleg1Aggregate = new BABYLON.PhysicsAggregate(displayleg1, BABYLON.PhysicsShapeType.BOX, { mass: 9999999999999, restitution: 0, friction: 1 }, scene);
+
+
+    let displayhead = BABYLON.MeshBuilder.CreateSphere("CharacterDisplay3", { diamter: 2, segments: 32 }, scene);
+        var charMaterial3 = new BABYLON.StandardMaterial("charMat3", scene);
+        charMaterial3.diffuseColor = new BABYLON.Color3(1, 1, 0);
+        displayhead.material = charMaterial3;
+        displayhead.position = new BABYLON.Vector3(3, 3, -7);
+        var displayheadAggregate = new BABYLON.PhysicsAggregate(displayhead, BABYLON.PhysicsShapeType.SPHERE, { mass: 9999999999999, restitution: 0, friction: 1 }, scene);
+
+    let h3 = 1;
+    let w3 = 0.5;
+    let d2 = 0.5
+    let displayarm = BABYLON.MeshBuilder.CreateBox("CharacterDisplay4", { height: h3, width: w3, depth: d2 }, scene);
+    var charMaterial4 = new BABYLON.StandardMaterial("charMat4", scene);
+    charMaterial4.diffuseColor = new BABYLON.Color3(1, 1, 0);
+    displayarm.material = charMaterial4;
+    displayarm.position = new BABYLON.Vector3(3, 2, -6.25);
+    var displayarmAggregate = new BABYLON.PhysicsAggregate(displayarm, BABYLON.PhysicsShapeType.BOX, { mass: 9999999999999, restitution: 0, friction: 1 }, scene);
+
+    let h4 = 1;
+    let w4 = 0.5;
+    let d3 = 0.5
+    let displayarm1 = BABYLON.MeshBuilder.CreateBox("CharacterDisplay5", { height: h4, width: w4, depth: d3 }, scene);
+    var charMaterial5 = new BABYLON.StandardMaterial("charMat5", scene);
+    charMaterial5.diffuseColor = new BABYLON.Color3(1, 1, 0);
+    displayarm1.material = charMaterial5;
+    displayarm1.position = new BABYLON.Vector3(3, 2, -7.75);
+    var displayarm1Aggregate = new BABYLON.PhysicsAggregate(displayarm1, BABYLON.PhysicsShapeType.BOX, { mass: 9999999999999, restitution: 0, friction: 1 }, scene);
+
+//    displayTorso.parent = displayleg, displayleg1, displayarm, displayarm1, displayhead ;
+
+
+    var getNextState = function (supportInfo) {
+        if (state == "IN_AIR") {
+            if (supportInfo.supportedState == BABYLON.CharacterSupportedState.SUPPORTED) {
+                return "ON_GROUND";
+            }
+            return "IN_AIR";
+        } else if (state == "ON_GROUND") {
+            if (supportInfo.supportedState != BABYLON.CharacterSupportedState.SUPPORTED) {
+                return "IN_AIR";
+            }
+            if (wantJump) {
+                return "START_JUMP";
+            }
+            return "ON_GROUND";
+        } else if (state == "START_JUMP") {
+            return "IN_AIR";
+        }
+    }
+
+    var getDesiredVelocity = function (deltaTime, supportInfo, characterOrientation, currentVelocity) {
+        let nextState = getNextState(supportInfo);
+        if (nextState != state) {
+            state = nextState;
+        }
+
+        let upWorld = characterGravity.normalizeToNew();
+        upWorld.scaleInPlace(-1.0);
+        let forwardWorld = forwardLocalSpace.applyRotationQuaternion(characterOrientation);
+
+        if (state == "IN_AIR") {
+            let desiredVelocity = inputDirection.scale(inAirSpeed).applyRotationQuaternion(characterOrientation);
+            let outputVelocity = characterController.calculateMovement(deltaTime, forwardWorld, upWorld, currentVelocity, BABYLON.Vector3.ZeroReadOnly, desiredVelocity, upWorld);
+            outputVelocity.addInPlace(upWorld.scale(-outputVelocity.dot(upWorld)));
+            outputVelocity.addInPlace(upWorld.scale(currentVelocity.dot(upWorld)));
+            outputVelocity.addInPlace(characterGravity.scale(deltaTime));
+            return outputVelocity;
+        } else if (state == "ON_GROUND") {
+            let desiredVelocity = inputDirection.scale(onGroundSpeed).applyRotationQuaternion(characterOrientation);
+            let outputVelocity = characterController.calculateMovement(deltaTime, forwardWorld, supportInfo.averageSurfaceNormal, currentVelocity, supportInfo.averageSurfaceVelocity, desiredVelocity, upWorld);
+
+            outputVelocity.subtractInPlace(supportInfo.averageSurfaceVelocity);
+            let inv1k = 1e-3;
+            if (outputVelocity.dot(upWorld) > inv1k) {
+                let velLen = outputVelocity.length();
+                outputVelocity.normalizeFromLength(velLen);
+                let horizLen = velLen / supportInfo.averageSurfaceNormal.dot(upWorld);
+                let c = supportInfo.averageSurfaceNormal.cross(outputVelocity);
+                outputVelocity = c.cross(upWorld);
+                outputVelocity.scaleInPlace(horizLen);
+            }
+            outputVelocity.addInPlace(supportInfo.averageSurfaceVelocity);
+            return outputVelocity;
+        } else if (state == "START_JUMP") {
+            let u = Math.sqrt(2 * characterGravity.length() * jumpHeight);
+            let curRelVel = currentVelocity.dot(upWorld);
+            return currentVelocity.add(upWorld.scale(u - curRelVel));
+        }
+        return BABYLON.Vector3.Zero();
+    }
+//no need to copy paste for other body part
+    scene.onBeforeRenderObservable.add((scene) => {
+        displayTorso.position.copyFrom(characterController.getPosition());
+
+        var cameraDirection = camera.getDirection(new BABYLON.Vector3(0, 0, 1));
+        cameraDirection.y = 0;
+        cameraDirection.normalize();
+        camera.setTarget(BABYLON.Vector3.Lerp(camera.getTarget(), displayTorso.position, 0.1));
+        var dist = BABYLON.Vector3.Distance(camera.position, displayTorso.position);
+        const amount = (Math.min(dist - 3, 0) + Math.max(dist - 50, 0)) * 0.04;
+        cameraDirection.scaleAndAddToRef(amount, camera.position);
+        camera.position.y += (displayTorso.position.y + 2 - camera.position.y) * 0.04;
+    });
+
+    scene.onAfterPhysicsObservable.add((_) => {
+        if (scene.deltaTime == undefined) return;
+        let dt = scene.deltaTime / 1000.0;
+        if (dt == 0) return;
+
+        let down = new BABYLON.Vector3(0, -1, 0);
+        let support = characterController.checkSupport(dt, down);
+
+        BABYLON.Quaternion.FromEulerAnglesToRef(0, camera.rotation.y, 0, characterOrientation);
+        let desiredLinearVelocity = getDesiredVelocity(dt, support, characterOrientation, characterController.getVelocity());
+        characterController.setVelocity(desiredLinearVelocity);
+        characterController.integrate(dt, support, characterGravity);
+    });
+
+    let isMouseDown = false;
+    scene.onPointerObservable.add((pointerInfo) => {
+        switch (pointerInfo.type) {
+            case BABYLON.PointerEventTypes.POINTERDOWN:
+                isMouseDown = true;
+                break;
+            case BABYLON.PointerEventTypes.POINTERUP:
+                isMouseDown = false;
+                break;
+            case BABYLON.PointerEventTypes.POINTERMOVE:
+                if (isMouseDown) {
+                    var tgt = camera.getTarget().clone();
+                    camera.position.addInPlace(camera.getDirection(BABYLON.Vector3.Right()).scale(pointerInfo.event.movementX * -0.02));
+                    camera.setTarget(tgt);
+                }
+                break;
+        }
+    });
+
+    scene.onKeyboardObservable.add((kbInfo) => {
+        switch (kbInfo.type) {
+            case BABYLON.KeyboardEventTypes.KEYDOWN:
+                if (kbInfo.event.key == 'w' || kbInfo.event.key == 'ArrowUp') {
+                    inputDirection.z = 1;
+                } else if (kbInfo.event.key == 's' || kbInfo.event.key == 'ArrowDown') {
+                    inputDirection.z = -1;
+                } else if (kbInfo.event.key == 'a' || kbInfo.event.key == 'ArrowLeft') {
+                    inputDirection.x = -1;
+                } else if (kbInfo.event.key == 'd' || kbInfo.event.key == 'ArrowRight') {
+                    inputDirection.x = 1;
+                } else if (kbInfo.event.key == ' ') {
+                    wantJump = true;
+                }
+                else if (kbInfo.event.key == 'Shift'){
+                
+                isMouseDown = true
+                }
+
+                break;
+            case BABYLON.KeyboardEventTypes.KEYUP:
+                if (kbInfo.event.key == 'w' || kbInfo.event.key == 's' || kbInfo.event.key == 'ArrowUp' || kbInfo.event.key == 'ArrowDown') {
+                    inputDirection.z = 0;
+                }
+                if (kbInfo.event.key == 'a' || kbInfo.event.key == 'd' || kbInfo.event.key == 'ArrowLeft' || kbInfo.event.key == 'ArrowRight') {
+                    inputDirection.x = 0;
+                } else if (kbInfo.event.key == ' ') {
+                    wantJump = false;
+                }
+                else if (kbInfo.event.key == 'Shift'){
+                
+                isMouseDown = false
+                }
+                
+                break;
+        }
+    });
+
+    return scene;
+};
+    </script>
+</body>
+</html>
