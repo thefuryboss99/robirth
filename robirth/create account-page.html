@@ -13,6 +13,24 @@
     <title>ro-birth  create account-page</title>      
 <div>
 <style>
+  @media all and (max-width: 600px) and (orientation: portrait) {
+  body {
+    background-color: cyan;
+    color: grey;
+    
+    div {
+      position: center;
+      font-size: calc(100%/1.1);
+    }
+
+    input {
+      position: center;
+    }
+
+  }
+  
+}
+
   @font-face {
     font-family: 'Roblox2017-v6dO';
     src: url('Roblox2017-v6dO.ttf') format('truetype');
@@ -107,19 +125,21 @@ font-size: 7.5px;
 </div>
 </head>
 <body bgcolor="grey">
+  <div>
   <h1 style="background-color: red;">RO-birth [pre-beta] CREATE ACCOUNT</h1>
 <form id="createAccountForm">
-  <label style="position:absolute;top: 130px;left: 630px;">username</label>
-<label style="position:absolute;top: 250px;left: 630px;">password</label>
-<label style="position:absolute;top: 380px;left: 590px;">confirm password</label>
-<input type="text" id="Username" placeholder="Enter username" style="width: 375px; height:62.5px; border-radius: 5px; position:absolute;top: 170px;left: 500px;"/>
-<input type="password" id="Password" placeholder="Enter password" style="width: 375px; height:62.5px; border-radius: 5px; position:absolute;top: 300px;left: 500px;"/>
-<input type="password" id="confirmPassword" placeholder="Confirm password" style="width: 375px; height:62.5px; border-radius: 5px; position:absolute;top: 430px;left: 500px;"/>
-<button style="width: 380px; height:62.5px; border-radius: 5px; position:absolute;top: 525px;left: 500px;color:white;font-size:25px;">create and login</button>
+  <label style="position:absolute;top: 130px;left: 50%; transform: translateX(-50%);">username</label>
+<label style="position:absolute;top: 230px;left: 50%; transform: translateX(-50%);">password</label>
+<label style="position:absolute;top: 360px;left: 50%; transform: translateX(-50%);">confirm password</label>
+<input type="text" id="Username" placeholder="Enter username" style="width: 375px; height:62.5px; border-radius: 5px; position:absolute;top: 150px;left: 50%; transform: translateX(-50%);"/>
+<input type="password" id="Password" placeholder="Enter password" style="width: 375px; height:62.5px; border-radius: 5px; position:absolute;top: 280px;left: 50%; transform: translateX(-50%);"/>
+<input type="password" id="confirmPassword" placeholder="Confirm password" style="width: 375px; height:62.5px; border-radius: 5px; position:absolute;top: 410px;left: 50%; transform: translateX(-50%);"/>
+<button style="width: 380px; height:62.5px; border-radius: 5px; position:absolute;top: 505px;left: 50%; transform: translateX(-50%);color:white;font-size:25px;">create and login</button>
 </form>
-<a href="index.html">
-<p style="position:absolute;top: 575px;left: 545px;">already have an account ?</p>
+<a href="login page.html">
+<p style="position:absolute;top: 570px;left: 50%; transform: translateX(-50%);">already have an account ?</p>
 </a>
+</div>
 <script>
 // Registration
 document.getElementById('createAccountForm').addEventListener('submit', function(e) {
